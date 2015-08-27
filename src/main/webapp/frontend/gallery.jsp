@@ -188,9 +188,16 @@
 
 <div class="gallery_plan">
 	<div class="photo">
-		<a href="/detail.do?action=${action}&id=${topBean.id}">
-			<img src="${topBean.imageApath}" height="350" width="585" alt="">
-		</a>
+		<c:if test="${topBean.linkA == ''}">
+			<a href="/detail.do?action=${action}&id=${topBean.id}">
+				<img src="${topBean.imageApath}" height="188" width="250" alt="">
+			</a>
+		</c:if>
+		<c:if test="${topBean.linkA != ''}">
+			<a href="${topBean.linkA}">
+				<img src="${topBean.imageApath}" height="188" width="250" alt="">
+			</a>
+		</c:if>
 	</div>
 
 
@@ -217,20 +224,35 @@
 		<c:if test="${(number.index + 1) % 2 == 1}">
 			<div class="item_group">
 				<div class="item">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-						<img src="${gallery.imageApath}" height="188" width="250" alt="">
-					</a>
+					<h3 style="margin-left: 0;">${gallery.title} - ${gallery.subtitle}</h3>
+					<c:if test="${gallery.linkA == ''}">
+						<a href="/detail.do?action=${action}&id=${gallery.id}">
+							<img src="${gallery.imageApath}" height="188" width="250" alt="">
+						</a>
+					</c:if>
+					<c:if test="${gallery.linkA != ''}">
+						<a href="${gallery.linkA}">
+							<img src="${gallery.imageApath}" height="188" width="250" alt="">
+						</a>
+					</c:if>
+					
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
 		</c:if>
 		<c:if test="${(number.index + 1) % 2 == 0}">
 				<div class="item">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-						<img src="${gallery.imageApath}" height="188" width="250" alt="">
-					</a>
+					<h3 style="margin-left: 0;">${gallery.title} - ${gallery.subtitle}</h3>
+					<c:if test="${gallery.linkA == ''}">
+						<a href="/detail.do?action=${action}&id=${gallery.id}">
+							<img src="${gallery.imageApath}" height="188" width="250" alt="">
+						</a>
+					</c:if>
+					<c:if test="${gallery.linkA != ''}">
+						<a href="${gallery.linkA}">
+							<img src="${gallery.imageApath}" height="188" width="250" alt="">
+						</a>
+					</c:if>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>

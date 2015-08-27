@@ -67,16 +67,16 @@
 												<div id="description_msg"></div>
 											</div>
 										</div>
-										<div class="hotnews-add-tr">
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 											<div class="hotnews-add-td">內容(短)</div>
 											<div class="hotnews-add-td">
-												<textarea id="content_short_cht" name="content_short_cht" formcheck="1" errMsg="請輸入內容(短)"/>${item.content_short}</textarea>
+												<textarea id="content_short_cht" name="content_short_cht" <c:if test="${action != 'homebanner'}">formcheck="1"</c:if> errMsg="請輸入內容(短)"/>${item.content_short}</textarea>
 												<div id="content_short_msg"></div>
 											</div>
 										</div>
-										<div class="hotnews-add-tr">
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 											<div class="hotnews-add-td">內容(長)</div>
-											<div class="hotnews-add-td"><textarea id="content_long_cht" name="content_long_cht" mceEditor="1" errMsg="請輸入內容(長)"/>${item.content_long}</textarea></div>
+											<div class="hotnews-add-td"><textarea id="content_long_cht" name="content_long_cht" <c:if test="${action != 'homebanner'}">mceEditor="1"</c:if> errMsg="請輸入內容(長)"/>${item.content_long}</textarea></div>
 										</div>
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">作者</div>
@@ -255,11 +255,11 @@
 											<div class="hotnews-add-td">Description</div>
 											<div class="hotnews-add-td"><textarea id="description_enu" name="description_enu"/>${item.description}</textarea></div>
 										</div>
-										<div class="hotnews-add-tr">
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 											<div class="hotnews-add-td">Content(short)</div>
 											<div class="hotnews-add-td"><textarea id="content_short_enu" name="content_short_enu"/>${item.content_short}</textarea></div>
 										</div>
-										<div class="hotnews-add-tr">
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 											<div class="hotnews-add-td">Content(long)</div>
 											<div class="hotnews-add-td"><textarea id="content_long_enu" name="content_long_enu"/>${item.content_long}</textarea></div>
 										</div>
@@ -482,11 +482,11 @@ $(function() {
           $("#author_msg").html("目前輸入:" + data.input + "/" + data.max + " 還剩:" + data.left + "字元");
         }
     }).focus();
-
+    
     $('#title_cht').trigger('checkLimit');
     $('#subtitle_cht').trigger('checkLimit');
     $('#description_cht').trigger('checkLimit');
-    $('#content_short_cht').trigger('checkLimit');
+	$('#content_short_cht').trigger('checkLimit');
     $('#author_cht').trigger('checkLimit');
 });
 </script>
