@@ -56,17 +56,17 @@
 										<div id="description_msg"></div>	
 									</div>
 								</div>
-								<div class="hotnews-add-tr">
+								<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 									<div class="hotnews-add-td">內容(短)</div>
 									<div class="hotnews-add-td">
-										<textarea id="content_short_cht" name="content_short_cht" formcheck="1" errMsg="請輸入內容(短)"/></textarea>
+										<textarea id="content_short_cht" name="content_short_cht" <c:if test="${action != 'homebanner'}">formcheck="1"</c:if> errMsg="請輸入內容(短)"/></textarea>
 										<div id="content_short_msg"></div>
 									</div>
 								</div>
-								<div class="hotnews-add-tr">
+								<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 									<div class="hotnews-add-td">內容(長)</div>
 									<div class="hotnews-add-td">
-										<textarea id="content_long_cht" name="content_long_cht" mceEditor="1" errMsg="請輸入內容(長)"/></textarea>
+										<textarea id="content_long_cht" name="content_long_cht" <c:if test="${action != 'homebanner'}">mceEditor="1"</c:if> errMsg="請輸入內容(長)"/></textarea>
 										<div id="content_long_msg"></div>
 									</div>
 								</div>
@@ -199,11 +199,11 @@
 									<div class="hotnews-add-td">Description</div>
 									<div class="hotnews-add-td"><textarea id="description_enu" name="description_enu"/></textarea></div>
 								</div>
-								<div class="hotnews-add-tr">
+								<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 									<div class="hotnews-add-td">Content(short)</div>
 									<div class="hotnews-add-td"><textarea id="content_short_enu" name="content_short_enu"/></textarea></div>
 								</div>
-								<div class="hotnews-add-tr">
+								<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 									<div class="hotnews-add-td">Content(long)</div>
 									<div class="hotnews-add-td"><textarea id="content_long_enu" name="content_long_enu"/></textarea></div>
 								</div>
