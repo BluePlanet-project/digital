@@ -144,7 +144,9 @@
 
 		<div class="clear"></div>
 
-
+		<div class="FB_section">
+			<div class="fb-comments" data-href="http://140.112.145.91/detail.do?action=${action}&amp;id=${itemBean.id}" data-width="700" data-numposts="5" data-colorscheme="light"></div>
+		</div>
 	</div>
 	
 	<div class="detail_r">
@@ -152,6 +154,7 @@
 			<div class="r_box">
 				<a href="/detail.do?action=${action}&id=${item.id}"><img src="${item.imageApath}" alt=""></a>
 				<h6>${item.title}</h6>
+				<div class="clear"></div>
 				<!-- <p>${item.description}</p> -->
 			</div>
 		</c:forEach>
@@ -164,9 +167,7 @@
 	
 
 
-<div class="FB_section">
-	<div class="fb-comments" data-href="http://140.112.145.91/detail.do?action=${action}&amp;id=${itemBean.id}" data-width="1000" data-numposts="5" data-colorscheme="light"></div>
-</div>
+
 
 
 <div class="bg_blue">
