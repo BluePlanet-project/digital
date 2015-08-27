@@ -217,7 +217,7 @@
 		<c:if test="${(number.index + 1) % 2 == 1}">
 			<div class="item_group">
 				<div class="item">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
+					<h3 style="margin-left: 0;">${gallery.title} - ${gallery.subtitle}</h3>
 					<a href="/detail.do?action=${action}&id=${gallery.id}">
 						<img src="${gallery.imageApath}" height="188" width="250" alt="">
 					</a>
@@ -227,7 +227,7 @@
 		</c:if>
 		<c:if test="${(number.index + 1) % 2 == 0}">
 				<div class="item">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
+					<h3 style="margin-left: 0;">${gallery.title} - ${gallery.subtitle}</h3>
 					<a href="/detail.do?action=${action}&id=${gallery.id}">
 						<img src="${gallery.imageApath}" height="188" width="250" alt="">
 					</a>
