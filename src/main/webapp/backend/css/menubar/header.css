@@ -1,0 +1,296 @@
+
+/*
+
+Copyright © 2013 Sara Soueidan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table
+}
+
+.clearfix:after {
+  clear: both
+}
+
+.clearfix {
+  *zoom: 1
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  line-height: 1.5;
+  font-family: Microsoft JhengHei, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  background-color: #eee;
+  background: url(./images/bg.png) left top ;
+  background-size: 100% 100%
+}
+
+ul {
+  list-style-type: none
+}
+
+header {
+  background-color: rgba(0,0,0,0.2);
+  height: 35px;
+  line-height: 35px;
+  padding: 0 30px;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 17px
+}
+
+.demo-wrapper {
+  padding: 2em .5em;
+  width: 30%;
+  height: 100%;
+  position: relative;
+  float:left;
+}
+
+.dashboard {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em;
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  -o-transform: translateX(30px);
+  transform: translateX(30px);
+  opacity: 1;
+  /*-webkit-animation: start 1s ease-out forwards;
+  -o-animation: start 1s ease-out forwards;
+  animation: start 1s ease-out forwards*/
+}
+
+@-webkit-keyframes start {
+  0% {
+    -webkit-transform: translateX(200px);
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    opacity: 1
+  }
+}
+
+@keyframes start {
+  0% {
+    -webkit-transform: translateX(200px);
+    -ms-transform: translateX(200px);
+    -o-transform: translateX(200px);
+    transform: translateX(200px);
+    opacity: 0
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1
+  }
+}
+
+.col1,
+.col2,
+.col3 {
+  width: 99%;
+  margin: 1em auto
+}
+
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+ 
+::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+
+
+
+.tile {
+  float: left;
+  margin: 0 auto 1%;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  height: 3em;
+  font-weight: 300;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+  color: #333;
+  position: relative;
+  -webkit-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out
+}
+
+
+
+.tile-big {
+  width: 51%
+}
+
+
+
+.tile:hover .caption-left {
+  left: 0
+}
+
+
+
+.tile div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: table;
+  padding: 0 1em;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease
+}
+
+.tile div p {
+  display: table-cell;
+  vertical-align: middle
+}
+
+/*styling the individual tiles*/
+
+.tile-1 {
+  background-color: #56D9C9;
+  color: white
+}
+
+
+
+/* slide text inside tile up */
+
+.slideTextUp div:nth-child(2) {
+  top: 100%
+}
+
+.slideTextUp:hover div {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%)
+}
+
+.tile-1 p {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+
+
+/* slide text inside tile to the left */
+
+.slideTextLeft div:nth-child(2) {
+  left: 100%
+}
+
+.slideTextLeft:hover div {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%)
+}
+
+/*======================= media queries =======================*/
+
+@media screen and (min-width: 43.75em) {
+  .col1,
+  .col2,
+  .col3 {
+    float: left;
+    margin-right: 1%;
+    width: 49%
+  }
+  .page-title{
+    font-size:2.5em;
+  }
+  .page-content{
+    font-size:1em;
+  }
+  .close-button{
+    font-size:2em;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .col1,
+  .col2,
+  .col3 {
+    float: left;
+    margin-right: .5%;
+    width: 100%
+  }
+
+  .col3 {
+    margin-right: 0
+  }
+
+  .col1 {
+    margin-left: 2em
+  }
+  .page-title{
+    font-size:3.5em;
+  }
+}

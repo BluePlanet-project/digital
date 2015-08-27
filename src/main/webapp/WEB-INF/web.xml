@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>Archetype Created Web Application</display-name>
+	
+	<context-param>  
+	    <param-name>contextConfigLocation</param-name>     
+	    <param-value>/WEB-INF/spring-security.xml</param-value>          
+	</context-param>   
+  
+  	<filter>     
+	    <filter-name>springSecurityFilterChain</filter-name>     
+	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>     
+	</filter>     
+     
+	<filter-mapping>     
+	    <filter-name>springSecurityFilterChain</filter-name>     
+	    <url-pattern>/*</url-pattern>     
+	</filter-mapping>  
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  
+  	<servlet>
+		<servlet-name>ServletConfigurator</servlet-name>
+	  	<servlet-class>org.logicalcobwebs.proxool.configuration.ServletConfigurator</servlet-class>
+	  	<init-param>
+  			<param-name>xmlFile</param-name>
+  			<param-value>WEB-INF/proxool.xml</param-value>
+  		</init-param>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+  	
+  	<servlet>
+  		<servlet-name>proxool</servlet-name>
+  		<servlet-class>org.logicalcobwebs.proxool.admin.servlet.AdminServlet</servlet-class>
+  	</servlet>
+	<servlet-mapping>
+  		<servlet-name>proxool</servlet-name>
+  		<url-pattern>/proxool</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+		<description></description>
+		<display-name>BackendHomeAction</display-name>
+		<servlet-name>BackendHomeAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.home.BackendHomeAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackendHomeAction</servlet-name>
+		<url-pattern>/backend/index.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>ListAction</display-name>
+		<servlet-name>ListAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.ListAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListAction</servlet-name>
+		<url-pattern>/backend/item-list.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DataNewAction</display-name>
+		<servlet-name>DataNewAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.DataNewAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataNewAction</servlet-name>
+		<url-pattern>/backend/item-new.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DataAddAction</display-name>
+		<servlet-name>DataAddAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.DataAddAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataAddAction</servlet-name>
+		<url-pattern>/backend/item-add.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DataViewAction</display-name>
+		<servlet-name>DataViewAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.DataViewAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataViewAction</servlet-name>
+		<url-pattern>/backend/item-view.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DataEditAction</display-name>
+		<servlet-name>DataEditAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.DataEditAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataEditAction</servlet-name>
+		<url-pattern>/backend/item-edit.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DataDelAction</display-name>
+		<servlet-name>DataDelAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.DataDelAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataDelAction</servlet-name>
+		<url-pattern>/backend/item-delete.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>DataUpdOrderAction</display-name>
+		<servlet-name>DataUpdOrderAction</servlet-name>
+		<servlet-class>
+			com.digital.backend.action.items.common.DataUpdOrderAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DataUpdOrderAction</servlet-name>
+		<url-pattern>/backend/item-updorder.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>FrontHomePageAction</display-name>
+		<servlet-name>FrontHomePageAction</servlet-name>
+		<servlet-class>
+			com.digital.frontend.action.homepage.FrontHomePageAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FrontHomePageAction</servlet-name>
+		<url-pattern>/index.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>FrontGalleryAction</display-name>
+		<servlet-name>FrontGalleryAction</servlet-name>
+		<servlet-class>
+			com.digital.frontend.action.gallery.FrontGalleryAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FrontGalleryAction</servlet-name>
+		<url-pattern>/gallery.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>FrontDetailAction</display-name>
+		<servlet-name>FrontDetailAction</servlet-name>
+		<servlet-class>
+			com.digital.frontend.action.detail.FrontDetailAction
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FrontDetailAction</servlet-name>
+		<url-pattern>/detail.do</url-pattern>
+	</servlet-mapping>
+</web-app>
