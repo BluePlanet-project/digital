@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +65,7 @@
 
 	<div class="toplink">
 		<ul>
-			<li><a href="#">加入會員</a></li>
+			<li><a href="#">關於我們</a></li>
 			<li><a href="mailto:dhintaiwan@gmail.com">我要投稿</a></li>
 			<li><a href="mailto:dhintaiwan@gmail.com">聯絡我們</a></li>
 			
@@ -103,13 +104,15 @@
 				<li class="nav_line"></li>
 				<li><a href="/gallery.do?action=hotnews">最新消息</a></li>
 				<li class="nav_line"></li>
-				<li><a href="/gallery.do?action=research">數位人文計畫介紹</a></li>
+				<li><a href="/gallery.do?action=research">數位人文研究計畫</a></li>
 				<li class="nav_line"></li>
 				<!-- <li><a href="/gallery.do?action=researchResource">數位人文研究資源</a></li>
 				<li class="nav_line"></li> -->
 				<li><a href="/gallery.do?action=converage">專題報導</a></li>
 				<li class="nav_line"></li>
 				<li><a href="/gallery.do?action=interperspective">國際視野</a></li>
+				<li class="nav_line"></li>
+				<li><a href="/index.do#tool">研究資源</a></li>
 				<!-- <li class="nav_line"></li>
 				<li><a href="/gallery.do?action=knowTaiwan">看見臺灣 </a></li> -->
 			</ul>
@@ -117,10 +120,21 @@
 		</nav>
 
 		<!-- portable search -->
-		<div class="search_portable">
-			<input type="text">
-			<a href="">搜尋</a>
-		</div>
+	        <div class="search_portable">
+            <script>
+              (function() {
+                var cx = '005551680650451778246:j_ubmsw77im';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+              })();
+            </script>
+            <gcse:search></gcse:search>
+        </div>
 		<!--
 		<div class="camera_wrap" style="background-size: cover;width: 100%;height: 500px;background-position: top center;position: relative;overflow: hidden;">
 			<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
@@ -144,7 +158,7 @@
 	</div>
 
 </div>
-
+<!--
 <div class="slider-desktop">
 			<div class="flexslider">
 				<ul class="slides">
@@ -160,7 +174,7 @@
 				</ul>
 			</div>
 		</div>
-
+-->
 <!-- mobile-menu -->
 	<div class="mobile-menu">
 		<div class="hamburg">
@@ -171,33 +185,39 @@
 	</div>	
 
 	<div class="aside">
-		<ul>
-			<li><a href="/index.do">首頁</a></li>
+			<ul>
+				<li><a href="/index.do">首頁</a></li>
 				<li><a href="/gallery.do?action=hotnews">最新消息</a></li>
 				<li><a href="/gallery.do?action=research">數位人文計畫介紹</a></li>
 				<li><a href="/gallery.do?action=converage">專題報導</a></li>
 				<li><a href="/gallery.do?action=interperspective">國際視野</a></li>
-		</ul>
+				<li><a href="/index.do#tool">研究資源</a></li>
+			</ul>
+	</div>
+
+
+<div class="gallery_title">
+<h2>${gallery_title_cht}</h2>	
 </div>
 
+<c:choose>
+    <c:when test="${action == 'hotnews'}">
+     
+    </c:when>
+    <c:when test="${action == 'researchResource'}">
+       
+    </c:when>
+	  <c:when test="${action == 'relatedWeb'}">
+       
+    </c:when>
+	
 
-
-
-
-
-
-<div class="gallery_plan">
+    <c:otherwise>
+              <div class="gallery_plan">
 	<div class="photo">
-		<c:if test="${topBean.linkA == ''}">
-			<a href="/detail.do?action=${action}&id=${topBean.id}">
-				<img src="${topBean.imageApath}" height="188" width="250" alt="">
-			</a>
-		</c:if>
-		<c:if test="${topBean.linkA != ''}">
-			<a href="${topBean.linkA}">
-				<img src="${topBean.imageApath}" height="188" width="250" alt="">
-			</a>
-		</c:if>
+		<a href="/detail.do?action=${action}&id=${topBean.id}">
+			<img src="${topBean.imageApath}" height="350" width="585" alt="">
+		</a>
 	</div>
 
 
@@ -211,6 +231,11 @@
 	<div class="clear"></div>
 
 </div>
+    </c:otherwise>
+</c:choose>
+
+
+
 
 
 
@@ -218,41 +243,51 @@
 
 <div class="gallery_title">
 
-	<h2>${gallery_title_cht}</h2>	
+	
 	<!-- item_group -->
 	<c:forEach items="${galleryList}" var="gallery" varStatus="number">
 		<c:if test="${(number.index + 1) % 2 == 1}">
 			<div class="item_group">
 				<div class="item">
-					<h3 style="margin-left: 0;">${gallery.title} - ${gallery.subtitle}</h3>
-					<c:if test="${gallery.linkA == ''}">
-						<a href="/detail.do?action=${action}&id=${gallery.id}">
-							<img src="${gallery.imageApath}" height="188" width="250" alt="">
-						</a>
-					</c:if>
-					<c:if test="${gallery.linkA != ''}">
-						<a href="${gallery.linkA}">
-							<img src="${gallery.imageApath}" height="188" width="250" alt="">
-						</a>
-					</c:if>
 					
+					<a href="/detail.do?action=${action}&id=${gallery.id}">
+					<h3 style="margin-left: 0;">${gallery.title}</h3>
+					</a>
+					
+<c:choose>
+    <c:when test="${action == 'hotnews'}">
+		<h3 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h3>
+    </c:when>
+    <c:otherwise>
+              
+    </c:otherwise>
+</c:choose>
+
+					
+					<a href="/detail.do?action=${action}&id=${gallery.id}">
+						<img src="${gallery.imageApath}" height="188" width="250" alt="">
+					</a>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
 		</c:if>
 		<c:if test="${(number.index + 1) % 2 == 0}">
 				<div class="item">
-					<h3 style="margin-left: 0;">${gallery.title} - ${gallery.subtitle}</h3>
-					<c:if test="${gallery.linkA == ''}">
-						<a href="/detail.do?action=${action}&id=${gallery.id}">
-							<img src="${gallery.imageApath}" height="188" width="250" alt="">
-						</a>
-					</c:if>
-					<c:if test="${gallery.linkA != ''}">
-						<a href="${gallery.linkA}">
-							<img src="${gallery.imageApath}" height="188" width="250" alt="">
-						</a>
-					</c:if>
+					<a href="/detail.do?action=${action}&id=${gallery.id}">
+					<h3 style="margin-left: 0;">${gallery.title}</h3>
+					</a>
+										
+<c:choose>
+    <c:when test="${action == 'hotnews'}">
+		<h3 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h3>
+    </c:when>
+    <c:otherwise>
+              
+    </c:otherwise>
+</c:choose>
+					<a href="/detail.do?action=${action}&id=${gallery.id}">
+						<img src="${gallery.imageApath}" height="188" width="250" alt="">
+					</a>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
