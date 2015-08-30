@@ -322,8 +322,8 @@
 $(document).ready(function(){
 	tinymce.init({
 		selector:'textarea#content_long_cht,textarea#content_long_enu',
-		menubar : false,
-		plugins: "image"
+		menubar : true,
+		plugins: "image link media"
 	});
 });
 
