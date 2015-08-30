@@ -88,7 +88,7 @@ public class DataEditAction extends HttpServlet{
 		int enabled_cht = Integer.parseInt(parameters.get("enabled_cht") == null ? "0" : parameters.get("enabled_cht").toString());
 		
 		//del image
-		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : parameters.get("del_img_1_cht").toString());
+		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : "1");
 		
 		//ENU
 		String title_enu = parameters.get("title_enu") == null ? "" : parameters.get("title_enu").toString();
@@ -113,7 +113,7 @@ public class DataEditAction extends HttpServlet{
 		int enabled_enu = Integer.parseInt(parameters.get("enabled_enu") == null ? "0" : parameters.get("enabled_enu").toString());
 		
 		//del image
-		int del_img_1_enu = Integer.parseInt(parameters.get("del_img_1_enu") == null ? "0" : parameters.get("del_img_1_enu").toString());
+		int del_img_1_enu = Integer.parseInt(parameters.get("del_img_1_enu") == null ? "0" :  "1");
 		
 		//set up bean
 		//CHT
