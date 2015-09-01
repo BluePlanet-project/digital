@@ -281,7 +281,17 @@
 	<div class="title" id="first-section">
 		<c:forEach items="${hotnewsList}" var="hotnews" varStatus="number">
 			<div class="oop">
-				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><img src="${hotnews.imageApath}"  alt=""></a>
+				<c:if test="${hotnews.linkA == ''}">
+		            <a href="/detail.do?action=hotnews&id=${hotnews.id}"><img src="${hotnews.imageApath}"  alt=""></a>
+		        </c:if>
+		        <c:if test="${hotnews.linkA != ''}">
+		            <a href="${hotnews.linkA}">
+		                <img src="${hotnews.imageApath}"  alt="">
+		            </a>
+		        </c:if>
+				
+			
+				
 				
 				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><h3>${hotnews.title}</h3></a>
 				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><h3>${fn:substring(hotnews.createDate, 0, 11)}</h3></a>
