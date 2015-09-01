@@ -215,9 +215,17 @@
     <c:otherwise>
               <div class="gallery_plan">
 	<div class="photo">
-		<a href="/detail.do?action=${action}&id=${topBean.id}">
-			<img src="${topBean.imageApath}" height="350" width="585" alt="">
-		</a>
+        <c:if test="${topBean.linkA == ''}">
+            <a href="/detail.do?action=${action}&id=${topBean.id}">
+                <img src="${topBean.imageApath}" height="188" width="250" alt="">
+            </a>
+        </c:if>
+        <c:if test="${topBean.linkA != ''}">
+            <a href="${topBean.linkA}">
+                <img src="${topBean.imageApath}" height="188" width="250" alt="">
+            </a>
+        </c:if>
+
 	</div>
 
 
