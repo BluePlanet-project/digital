@@ -25,6 +25,7 @@
 		<div id="page-column" style="width: 80%">
 			<form id="upload" action="/backend/item-edit.do" enctype="multipart/form-data" method="post">
 			<input type="hidden" id="action" name="action" value="${action}" />
+			<input type="hidden" id="page" name="page" value="${page}" />
 			<div class="tab_div">
 			<ul class="tabs">
 				<c:forEach items="${itemsList}" var="item" varStatus="number">

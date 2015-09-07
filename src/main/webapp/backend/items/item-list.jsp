@@ -45,14 +45,14 @@
 						<input type="text" id="displayOrder${item.id}" name="displayOrder${item.id}" value="${item.displayOrder}" size="2"/>&nbsp;
 						<a href="#" onclick="updateDisplayOrder(${item.id});return false;"><img src="/backend/images/refresh.png" height="20px"/></a>
 					</div>
-					<div class="hotnews-list-td"><a href="/backend/item-view.do?action=${action}&id=${item.id}">${item.id}</a></div>
+					<div class="hotnews-list-td"><a href="/backend/item-view.do?action=${action}&id=${item.id}&page=${page}">${item.id}</a></div>
 					<div class="hotnews-list-td">${item.title}</div>
 					<div class="hotnews-list-td">${item.author}</div>
 					<div class="hotnews-list-td">${item.createDate}</div>
 					<div class="hotnews-list-td">
 						<section>
 							<div id="container_buttons">
-								<a href="/backend/item-view.do?action=${action}&id=${item.id}"><div class="editor-btn">編輯</div></a>
+								<a href="/backend/item-view.do?action=${action}&id=${item.id}&page=${page}"><div class="editor-btn">編輯</div></a>
 								<a href="#" onclick="deleteItem(${item.id});return false;"><div class="delete-btn">刪除</div></a>
 							</div>
 						</section>

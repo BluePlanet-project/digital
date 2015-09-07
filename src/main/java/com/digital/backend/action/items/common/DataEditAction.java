@@ -90,6 +90,9 @@ public class DataEditAction extends HttpServlet{
 		//del image
 		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : "1");
 		
+		//keep page number
+		int page = Integer.parseInt(parameters.get("page") == null ? "1" : parameters.get("page").toString());
+		
 		//ENU
 		String title_enu = parameters.get("title_enu") == null ? "" : parameters.get("title_enu").toString();
 		String author_enu = parameters.get("author_enu") == null ? "" : parameters.get("author_enu").toString();
@@ -310,7 +313,7 @@ public class DataEditAction extends HttpServlet{
 				break;
 		}
 		
-		String url = "/backend/item-list.do?action=" + action;
+		String url = "/backend/item-list.do?action=" + action + "&page=" + page;
 		response.sendRedirect(url);
 	}
 	
