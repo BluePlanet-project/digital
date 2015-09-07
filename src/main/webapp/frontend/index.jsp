@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>科技部數位人文交流平台</title>
-	<link rel="stylesheet" href="/frontend/stylesheets/layout.css">
+	<link rel="stylesheet" href="/frontend/stylesheets/layout02.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/modify.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/flexslider.css">
 	<link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
@@ -142,19 +142,20 @@
 </div>
 -->
 	<div class="search">
-		<script>
-		  (function() {
-		    var cx = '005551680650451778246:j_ubmsw77im';
-		    var gcse = document.createElement('script');
-		    gcse.type = 'text/javascript';
-		    gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//cse.google.com/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-		<gcse:search></gcse:search>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
 	</div>
 
 </header>
@@ -186,20 +187,19 @@
 
 		<!-- portable search -->
 	        <div class="search_portable">
-            <script>
-              (function() {
-                var cx = '005551680650451778246:j_ubmsw77im';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
-        </div>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
 		
 		<!-- 
 		<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
@@ -281,7 +281,17 @@
 	<div class="title" id="first-section">
 		<c:forEach items="${hotnewsList}" var="hotnews" varStatus="number">
 			<div class="oop">
-				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><img src="${hotnews.imageApath}"  alt=""></a>
+				<c:if test="${hotnews.linkA == ''}">
+		            <a href="/detail.do?action=hotnews&id=${hotnews.id}"><img src="${hotnews.imageApath}"  alt=""></a>
+		        </c:if>
+		        <c:if test="${hotnews.linkA != ''}">
+		            <a href="${hotnews.linkA}" target="_blank">
+		                <img src="${hotnews.imageApath}"  alt="">
+		            </a>
+		        </c:if>
+				
+			
+				
 				
 				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><h3>${hotnews.title}</h3></a>
 				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><h3>${fn:substring(hotnews.createDate, 0, 11)}</h3></a>
@@ -306,7 +316,7 @@
 		      <img src="/frontend/img/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
 		    </div>
 		-->
-		<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285"><a href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285">數位人文交流平台Taiwan Digital Humanities Forum</a></blockquote></div></div>
+		<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285" data-height="480" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285"><a href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285">數位人文交流平台Taiwan Digital Humanities Forum</a></blockquote></div></div>
 		<!--
 		<div class="fb_1">
 			<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285">科技部數位人文交流平台</a></blockquote></div></div>
@@ -444,7 +454,6 @@
 </div>
 
 </footer>
-
 
 
 

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>科技部數位人文交流平台</title>
-	<link rel="stylesheet" href="/frontend/stylesheets/layout.css">
+	<link rel="stylesheet" href="/frontend/stylesheets/layout02.css">
 <!-- 	<link rel="stylesheet" href="stylesheets/gallery.css">
 	<link rel="stylesheet" href="stylesheets/detail.css"> -->
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -43,19 +43,19 @@
 	</div>
 
 	<div class="search">
-		<script>
-		  (function() {
-		    var cx = '005551680650451778246:j_ubmsw77im';
-		    var gcse = document.createElement('script');
-		    gcse.type = 'text/javascript';
-		    gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//cse.google.com/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-		<gcse:search></gcse:search>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
 	</div>
 
 </header>
@@ -145,14 +145,25 @@
 		</c:if>
 -->
 		<div class="clear"></div>
-
+		<div class="FB_section">
+			<div class="fb-comments" data-href="http://140.112.145.91/detail.do?action=${action}&amp;id=${itemBean.id}" data-width="700" data-numposts="5" data-colorscheme="light"></div>
+		</div>
 
 	</div>
 	
 	<div class="detail_r">
 		<c:forEach items="${itemListRight}" var="item" varStatus="number">
 			<div class="r_box">
-				<a href="/detail.do?action=${action}&id=${item.id}"><img src="${item.imageApath}" alt=""></a>
+				<c:if test="${item.linkA == ''}">
+		            <a href="/detail.do?action=${action}&id=${item.id}"><img src="${item.imageApath}" alt=""></a>
+		        </c:if>
+		        <c:if test="${item.linkA != ''}">
+		            <a href="${item.linkA}" target="_blank">
+		                <img src="${item.imageApath}" alt="">
+		            </a>
+		        </c:if>
+			
+				
 				<h6>${item.title}</h6>
 				<!-- <p>${item.description}</p> -->
 			</div>
@@ -166,9 +177,7 @@
 	
 
 
-<div class="FB_section">
-	<div class="fb-comments" data-href="http://140.112.145.91/detail.do?action=${action}&amp;id=${itemBean.id}" data-width="1000" data-numposts="5" data-colorscheme="light"></div>
-</div>
+
 
 
 

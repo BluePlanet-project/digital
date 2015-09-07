@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>科技部數位人文交流平台</title>
-	<link rel="stylesheet" href="/frontend/stylesheets/layout.css">
+	<link rel="stylesheet" href="/frontend/stylesheets/layout02.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/modify.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/flexslider.css">
 	<link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
@@ -30,22 +30,6 @@
 }
 </style>
 	<script type="text/javascript">
-	/*$(function(){
-		$('.camera_wrap').slidesjs({
-			play: {
-		    	active: true,
-		        auto: true,
-		        interval: 4000,
-		        swap: true
-		    },
-	    	callback: {
-				complete: function(number) {
-	    	    	$('.supertitle').css('display', 'none');
-	    	    	$('#supertitle_' + number).css('display', '');
-	    	    }
-		    }
-		});
-    });*/
 
     $(window).load(function() {
     	$('.flexslider').flexslider({
@@ -77,19 +61,19 @@
 	</div>
 
 	<div class="search">
-		<script>
-		  (function() {
-		    var cx = '005551680650451778246:j_ubmsw77im';
-		    var gcse = document.createElement('script');
-		    gcse.type = 'text/javascript';
-		    gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//cse.google.com/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-		<gcse:search></gcse:search>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
 	</div>
 
 </header>
@@ -121,60 +105,24 @@
 
 		<!-- portable search -->
 	        <div class="search_portable">
-            <script>
-              (function() {
-                var cx = '005551680650451778246:j_ubmsw77im';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
+   <script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
         </div>
-		<!--
-		<div class="camera_wrap" style="background-size: cover;width: 100%;height: 500px;background-position: top center;position: relative;overflow: hidden;">
-			<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
-				<img src="${homebanner.imageApath}" />
-			</c:forEach>
-		</div>
-		
-		<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
-			<c:if test="${number.index + 1 == 1}">
-			<div class="supertitle" id="supertitle_${number.index + 1}">
-			</c:if>
-			<c:if test="${number.index + 1 != 1}">
-			<div class="supertitle" id="supertitle_${number.index + 1}" style="display:none;">
-			</c:if>
-				<h1>${homebanner.title}</h1>
-				<p>${homebanner.description}</p>
-			</div>
-		</c:forEach>
-		-->
 
 	</div>
 
 </div>
-<!--
-<div class="slider-desktop">
-			<div class="flexslider">
-				<ul class="slides">
-					<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
-						<li>
-							<img src="${homebanner.imageApath}" />
-							<p class="flex-caption">
-								<span style="font-size: 20px; line-height:40px;">${homebanner.title}</span><br />
-								${homebanner.description}
-							</p>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-		</div>
--->
 <!-- mobile-menu -->
 	<div class="mobile-menu">
 		<div class="hamburg">
@@ -210,7 +158,12 @@
 	  <c:when test="${action == 'relatedWeb'}">
        
     </c:when>
-	
+	<c:when test="${action == 'database'}">
+       
+    </c:when>
+	<c:when test="${action == 'dataaddon'}">
+       
+    </c:when>
 
     <c:otherwise>
               <div class="gallery_plan">
@@ -221,7 +174,7 @@
             </a>
         </c:if>
         <c:if test="${topBean.linkA != ''}">
-            <a href="${topBean.linkA}">
+            <a href="${topBean.linkA}" target="_blank">
                 <img src="${topBean.imageApath}" height="188" width="250" alt="">
             </a>
         </c:if>
@@ -258,32 +211,53 @@
 			<div class="item_group">
 				<div class="item">
 					
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
-					</a>
 					
-<c:choose>
-    <c:when test="${action == 'hotnews'}">
-		<h3 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h3>
-    </c:when>
-    <c:otherwise>
-              
-    </c:otherwise>
-</c:choose>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${gallery.id}">
+							<h3 style="margin-left: 0;">${gallery.title}</h3>
+						</a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <h3 style="margin-left: 0;">${gallery.title}</h3>
+			            </a>
+			        </c:if>
+					
+			<c:choose>
+			    <c:when test="${action == 'hotnews'}">
+					<h3 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h3>
+			    </c:when>
+			    <c:otherwise>
+			              
+			    </c:otherwise>
+			</c:choose>
 
-					
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-						<img src="${gallery.imageApath}" height="188" width="250" alt="">
-					</a>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${gallery.id}">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
 		</c:if>
 		<c:if test="${(number.index + 1) % 2 == 0}">
 				<div class="item">
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
-					</a>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${gallery.id}">
+							<h3 style="margin-left: 0;">${gallery.title}</h3>
+						</a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <h3 style="margin-left: 0;">${gallery.title}</h3>
+			            </a>
+			        </c:if>
 										
 <c:choose>
     <c:when test="${action == 'hotnews'}">
@@ -293,9 +267,16 @@
               
     </c:otherwise>
 </c:choose>
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-						<img src="${gallery.imageApath}" height="188" width="250" alt="">
-					</a>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${topBean.id}">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
