@@ -434,6 +434,7 @@ $(document).ready(function(){
 function submit(){
 	if(formCheck($('#upload'))){
 		if(mceChecker($('#upload'))){
+			$('#description_cht').val($('#description_cht').val().replace(/\n/g, "<br />"));
 			$('#upload').submit();
 		}
 	}
