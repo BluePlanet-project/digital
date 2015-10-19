@@ -359,4 +359,30 @@ public class DataBaseDAO {
 			conn.close();
 		}
 	}
+	
+	public void deleteFile(int id, int langId, int fileNo) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			String sql = "";
+			if(fileNo == 1){
+				sql = "update digital_database set filePathA = '' where id = ? and lang_id = ? ";				
+			}else if(fileNo == 2){
+				sql = "update digital_database set filePathB = '' where id = ? and lang_id = ? ";	
+			}else{
+				sql = "update digital_database set filePathC = '' where id = ? and lang_id = ? ";	
+			}
+			conn = DriverManager.getConnection("proxool.digital");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			pstmt.setInt(2, langId);
+			pstmt.execute();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			pstmt.close();
+			conn.close();
+		}
+	}
 }

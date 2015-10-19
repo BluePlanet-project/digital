@@ -89,6 +89,10 @@ public class DataEditAction extends HttpServlet{
 		
 		//del image
 		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : "1");
+		//del file
+		int del_file_a_cht = Integer.parseInt(parameters.get("del_file_a_cht") == null ? "0" : "1");
+		int del_file_b_cht = Integer.parseInt(parameters.get("del_file_b_cht") == null ? "0" : "1");
+		int del_file_c_cht = Integer.parseInt(parameters.get("del_file_c_cht") == null ? "0" : "1");
 		
 		//keep page number
 		int page = Integer.parseInt(parameters.get("page") == null ? "1" : parameters.get("page").toString());
@@ -117,6 +121,10 @@ public class DataEditAction extends HttpServlet{
 		
 		//del image
 		int del_img_1_enu = Integer.parseInt(parameters.get("del_img_1_enu") == null ? "0" :  "1");
+		//del file
+		int del_file_a_enu = Integer.parseInt(parameters.get("del_file_a_enu") == null ? "0" : "1");
+		int del_file_b_enu = Integer.parseInt(parameters.get("del_file_b_enu") == null ? "0" : "1");
+		int del_file_c_enu = Integer.parseInt(parameters.get("del_file_c_enu") == null ? "0" : "1");
 		
 		//set up bean
 		//CHT
@@ -152,17 +160,44 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					HotNewsDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case interperspective:
 				InterPerspectiveDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					InterPerspectiveDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case converage:
 				ConverageDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					ConverageDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case research:
