@@ -9,6 +9,8 @@
 <title>[後台]最新消息-修改</title>
 <link rel="stylesheet" type="text/css" href="/backend/css/hotnews/style.css" />
 <link rel="stylesheet" type="text/css" href="/backend/css/hotnews/add.css" />
+
+
 </head>
 <body>
 <div class="fixed-header">
@@ -25,6 +27,7 @@
 		<div id="page-column" style="width: 80%">
 			<form id="upload" action="/backend/item-edit.do" enctype="multipart/form-data" method="post">
 			<input type="hidden" id="action" name="action" value="${action}" />
+			<input type="hidden" id="page" name="page" value="${page}" />
 			<div class="tab_div">
 			<ul class="tabs">
 				<c:forEach items="${itemsList}" var="item" varStatus="number">
@@ -74,10 +77,31 @@
 												<div id="content_short_msg"></div>
 											</div>
 										</div>
+										
+										
+										
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
+											<div class="hotnews-add-td">內容(長)</div>
+											<div class="hotnews-add-td">	
+													<textarea id="content_long_cht" name="content_long_cht" style="display:none;" />${item.content_long}</textarea>
+													<div class="adjoined-bottom">
+													<div class="grid-container">
+														<div class="grid-width-100">
+															<div id="editor">
+																${item.content_long}
+															</div>
+														</div>
+													</div>
+										</div></div>
+										
+										</div>
+										
+										<!--
 										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 											<div class="hotnews-add-td">內容(長)</div>
 											<div class="hotnews-add-td"><textarea id="content_long_cht" name="content_long_cht" <c:if test="${action != 'homebanner'}">mceEditor="1"</c:if> errMsg="請輸入內容(長)"/>${item.content_long}</textarea></div>
 										</div>
+										-->
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">作者</div>
 											<div class="hotnews-add-td">
@@ -120,7 +144,9 @@
 													<input type="checkbox" id="del_img_1_cht" name="del_img_1_cht"/>刪除圖片
 												</c:if>
 											</div>
-											<div class="hotnews-add-td"><input type="file" id="image_1_cht" name="image_1_cht" /><br />
+											<div class="hotnews-add-td">
+												首頁橫幅圖片建議規格：1600 x 500(主視覺需要在最上方)／其它分頁項圖片建議規格：501 x 334 或 575 x 383 （66：34）</BR>
+												<input type="file" id="image_1_cht" name="image_1_cht" /><br />
 												<c:if test="${item.imageApath != ''}">
 													<img src="<%=contextName%>${item.imageApath}" height="200px"/>
 												</c:if>
@@ -169,7 +195,12 @@
 											</div>
 										</div> -->
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">檔案下載一</div>
+											<div class="hotnews-add-td">
+												檔案下載一<br />
+												<c:if test="${item.fileApath != ''}">
+													<input type="checkbox" id="del_file_a_cht" name="del_file_a_cht"/>刪除檔案
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_1_cht" name="file_1_cht" />&nbsp;
 												<c:if test="${item.fileApath != ''}">
 													<a href="${item.fileApath}" target="_blank">下載</a>
@@ -177,7 +208,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">檔案下載二</div>
+											<div class="hotnews-add-td">
+												檔案下載二<br />
+												<c:if test="${item.fileBpath != ''}">
+													<input type="checkbox" id="del_file_b_cht" name="del_file_b_cht"/>刪除檔案
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_2_cht" name="file_2_cht" />&nbsp;
 												<c:if test="${item.fileBpath != ''}">
 													<a href="${item.fileBpath}" target="_blank">下載</a>
@@ -185,7 +221,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">檔案下載三</div>
+											<div class="hotnews-add-td">
+												檔案下載三<br />
+												<c:if test="${item.fileCpath != ''}">
+													<input type="checkbox" id="del_file_c_cht" name="del_file_c_cht"/>刪除檔案
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_3_cht" name="file_3_cht" />&nbsp;
 												<c:if test="${item.fileCpath != ''}">
 													<a href="${item.fileCpath}" target="_blank">下載</a>
@@ -347,7 +388,12 @@
 											</div>
 										</div> -->
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">FileA</div>
+											<div class="hotnews-add-td">
+												FileA<br />
+												<c:if test="${item.fileApath != ''}">
+													<input type="checkbox" id="del_file_a_enu" name="del_file_a_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_1_enu" name="file_1_enu" />&nbsp;
 												<c:if test="${item.fileApath != ''}">
 													<a href="${item.fileApath}" target="_blank">Download</a>
@@ -355,7 +401,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">FileB</div>
+											<div class="hotnews-add-td">
+												FileB<br />
+												<c:if test="${item.fileBpath != ''}">
+													<input type="checkbox" id="del_file_b_enu" name="del_file_b_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_2_enu" name="file_2_enu" />&nbsp;
 												<c:if test="${item.fileBpath != ''}">
 													<a href="${item.fileBpath}" target="_blank">Download</a>
@@ -363,7 +414,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">FileC</div>
+											<div class="hotnews-add-td">
+												FileC<br />
+												<c:if test="${item.fileCpath != ''}">
+													<input type="checkbox" id="del_file_c_enu" name="del_file_c_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_3_enu" name="file_3_enu" />&nbsp;
 												<c:if test="${item.fileCpath != ''}">
 													<a href="${item.fileCpath}" target="_blank">Download</a>
@@ -418,10 +474,16 @@
 
 
 
-<script type="text/javascript" src="/backend/js/formcheck/script.js"></script>
+
+
+<script type="text/javascript" src="/backend/js/formcheck/script.js?v=1"></script>
 <script type="text/javascript" src="/backend/js/formcheck/inputlimit.js"></script>
 <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+	<script src="/backend/ckeditor/ckeditor.js?v=1"></script>
+	<script src="/backend/ckeditor/samples/js/sample.js?v=1"></script>
+	<link rel="stylesheet" href="/backend/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
 <script type="text/javascript">
+/* Blacky
 $(document).ready(function(){
 	tinymce.init({
 		selector:'textarea#content_long_cht,textarea#content_long_enu',
@@ -429,10 +491,18 @@ $(document).ready(function(){
 		plugins: "image link media"
 	});
 });
+*/
+
 
 function submit(){
+	//Blacky
+	//alert(CKEDITOR.instances.editor.getData());
+	$('#content_long_cht').val(CKEDITOR.instances.editor.getData());
+	//alert($('#content_long_cht').val());
+	
 	if(formCheck($('#upload'))){
 		if(mceChecker($('#upload'))){
+			$('#description_cht').val($('#description_cht').val().replace(/\n/g, "<br />"));
 			$('#upload').submit();
 		}
 	}
@@ -475,6 +545,7 @@ $(function() {
         }
     }).focus();
 
+	/*
     $('#author_cht').ChineseLengthLimit({
         limitCount: 40,
         isByte: true,
@@ -482,13 +553,17 @@ $(function() {
           $("#author_msg").html("目前輸入:" + data.input + "/" + data.max + " 還剩:" + data.left + "字元");
         }
     }).focus();
-    
+    */
     $('#title_cht').trigger('checkLimit');
     $('#subtitle_cht').trigger('checkLimit');
     $('#description_cht').trigger('checkLimit');
 	$('#content_short_cht').trigger('checkLimit');
-    $('#author_cht').trigger('checkLimit');
+    //$('#author_cht').trigger('checkLimit');
 });
+</script>
+	
+<script>
+	initSample();
 </script>
 <jsp:include page="/backend/footer/footer.jsp"></jsp:include>
 </body>

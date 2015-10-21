@@ -7,8 +7,11 @@
 <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>科技部數位人文交流平台</title>
-	<link rel="stylesheet" href="/frontend/stylesheets/layout.css">
+	<title>${gallery_title_cht}</title>
+	<meta property="og:title" content="${gallery_title_cht}"/>
+	<meta property="og:image" content="images/logo.png"/>
+	
+	<link rel="stylesheet" href="/frontend/stylesheets/layout02.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/modify.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/flexslider.css">
 	<link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
@@ -30,34 +33,30 @@
 }
 </style>
 	<script type="text/javascript">
-	/*$(function(){
-		$('.camera_wrap').slidesjs({
-			play: {
-		    	active: true,
-		        auto: true,
-		        interval: 4000,
-		        swap: true
-		    },
-	    	callback: {
-				complete: function(number) {
-	    	    	$('.supertitle').css('display', 'none');
-	    	    	$('#supertitle_' + number).css('display', '');
-	    	    }
-		    }
-		});
-    });*/
 
     $(window).load(function() {
     	$('.flexslider').flexslider({
     		animation: "slide"
     	});
     });
+	
+		$(window).scroll(function() {
+	if($(window).scrollTop() < 50) {
+       $('#bg_nav').removeClass('menuPostiotionFixed');
+	   $('header').css('display','');
+	}
+	else{
+		 $('#bg_nav').addClass('menuPostiotionFixed');
+		 $('header').css('display','none');
+	}
+	
+	});
 	</script>
 
 <body>
 
 <header>
-	<div class="logo">
+	<div class="logo" id="logo">
 		<a href="/index.do">
 			<img src="/frontend/images/logo.png" height="60" width="300" alt="">
 		</a>
@@ -65,9 +64,9 @@
 
 	<div class="toplink">
 		<ul>
-			<li><a href="#">關於我們</a></li>
-			<li><a href="mailto:dhintaiwan@gmail.com">我要投稿</a></li>
-			<li><a href="mailto:dhintaiwan@gmail.com">聯絡我們</a></li>
+			 <li><a href="#" onclick="javascript:alert('您好，若您對數位人文交流平台有任何建議或想法，歡迎您透過以下方式與我們聯繫!\n國立臺灣大學數位人文研究中心 \n市內電話/02-33669847\n電子信箱/dhintaiwan@gmail.com\n臉書粉專/https://www.facebook.com/dhtaiwan\n地址/106 台北市大安區羅斯福路四段一號');">關於我們</a></li>
+            <li><a href="mailto:dhintaiwan@gmail.com">我要投稿</a></li>
+            <li><a href="mailto:dhintaiwan@gmail.com">聯絡我們</a></li>
 			
 		</ul>
 	</div>
@@ -77,40 +76,40 @@
 	</div>
 
 	<div class="search">
-		<script>
-		  (function() {
-		    var cx = '005551680650451778246:j_ubmsw77im';
-		    var gcse = document.createElement('script');
-		    gcse.type = 'text/javascript';
-		    gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//cse.google.com/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-		<gcse:search></gcse:search>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
 	</div>
 
 </header>
 
 
 <div class="mainsection_gellary">
-	<div class="bg_nav">
+	<div class="bg_nav" id="bg_nav">
 		<!-- desktop menu -->
 		<nav>
 			<ul>
 				<li><a href="/index.do">首頁</a></li>
 				<li class="nav_line"></li>
-				<li><a href="/gallery.do?action=hotnews">最新消息</a></li>
+				<li><a href="/gallery.do?action=hotnews" <c:if test="${action == 'hotnews'}"> style="background: #222"  </c:if>>最新消息</a></li>
 				<li class="nav_line"></li>
-				<li><a href="/gallery.do?action=research">數位人文研究計畫</a></li>
+				<li><a href="/gallery.do?action=research" <c:if test="${action == 'research'}"> style="background: #222"  </c:if>>數位人文研究計畫</a></li>
 				<li class="nav_line"></li>
 				<!-- <li><a href="/gallery.do?action=researchResource">數位人文研究資源</a></li>
 				<li class="nav_line"></li> -->
-				<li><a href="/gallery.do?action=converage">專題報導</a></li>
+				<li><a href="/gallery.do?action=converage" <c:if test="${action == 'converage'}"> style="background: #222"  </c:if>>專題報導</a></li>
 				<li class="nav_line"></li>
-				<li><a href="/gallery.do?action=interperspective">國際視野</a></li>
+				<li><a href="/gallery.do?action=interperspective" <c:if test="${action == 'interperspective'}"> style="background: #222"  </c:if>>國際視野</a></li>
 				<li class="nav_line"></li>
 				<li><a href="/index.do#tool">研究資源</a></li>
 				<!-- <li class="nav_line"></li>
@@ -121,60 +120,24 @@
 
 		<!-- portable search -->
 	        <div class="search_portable">
-            <script>
-              (function() {
-                var cx = '005551680650451778246:j_ubmsw77im';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
+   <script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
         </div>
-		<!--
-		<div class="camera_wrap" style="background-size: cover;width: 100%;height: 500px;background-position: top center;position: relative;overflow: hidden;">
-			<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
-				<img src="${homebanner.imageApath}" />
-			</c:forEach>
-		</div>
-		
-		<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
-			<c:if test="${number.index + 1 == 1}">
-			<div class="supertitle" id="supertitle_${number.index + 1}">
-			</c:if>
-			<c:if test="${number.index + 1 != 1}">
-			<div class="supertitle" id="supertitle_${number.index + 1}" style="display:none;">
-			</c:if>
-				<h1>${homebanner.title}</h1>
-				<p>${homebanner.description}</p>
-			</div>
-		</c:forEach>
-		-->
 
 	</div>
 
 </div>
-<!--
-<div class="slider-desktop">
-			<div class="flexslider">
-				<ul class="slides">
-					<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
-						<li>
-							<img src="${homebanner.imageApath}" />
-							<p class="flex-caption">
-								<span style="font-size: 20px; line-height:40px;">${homebanner.title}</span><br />
-								${homebanner.description}
-							</p>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-		</div>
--->
 <!-- mobile-menu -->
 	<div class="mobile-menu">
 		<div class="hamburg">
@@ -210,19 +173,42 @@
 	  <c:when test="${action == 'relatedWeb'}">
        
     </c:when>
-	
+	<c:when test="${action == 'database'}">
+       
+    </c:when>
+	<c:when test="${action == 'dataaddon'}">
+       
+    </c:when>
 
     <c:otherwise>
               <div class="gallery_plan">
 	<div class="photo">
-		<a href="/detail.do?action=${action}&id=${topBean.id}">
-			<img src="${topBean.imageApath}" height="350" width="585" alt="">
-		</a>
+        <c:if test="${topBean.linkA == ''}">
+            <a href="/detail.do?action=${action}&id=${topBean.id}">
+                <img src="${topBean.imageApath}" height="188" width="250" alt="">
+            </a>
+        </c:if>
+        <c:if test="${topBean.linkA != ''}">
+            <a href="${topBean.linkA}" target="_blank">
+                <img src="${topBean.imageApath}" height="188" width="250" alt="">
+            </a>
+        </c:if>
+
 	</div>
 
 
 	<div class="news">
-		<h2>${topBean.title}</h2>
+		        <c:if test="${topBean.linkA == ''}">
+            <a href="/detail.do?action=${action}&id=${topBean.id}">
+               <h2>${topBean.title}</h2>
+            </a>
+        </c:if>
+        <c:if test="${topBean.linkA != ''}">
+            <a href="${topBean.linkA}" target="_blank">
+               <h2>${topBean.title}</h2>
+            </a>
+        </c:if>
+		
 		<p>
 			${topBean.content_short}
 		</p>
@@ -250,44 +236,74 @@
 			<div class="item_group">
 				<div class="item">
 					
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
-					</a>
 					
-<c:choose>
-    <c:when test="${action == 'hotnews'}">
-		<h3 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h3>
-    </c:when>
-    <c:otherwise>
-              
-    </c:otherwise>
-</c:choose>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${gallery.id}">
+							<h3 style="margin-left: 0;">${gallery.title}</h3>
+						</a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <h3 style="margin-left: 0;">${gallery.title}</h3>
+			            </a>
+			        </c:if>
+					
+			<c:choose>
+			    <c:when test="${action == 'hotnews'}">
+					<h4 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h4>
+							</BR>
+			    </c:when>
+			    <c:otherwise>
+			              
+			    </c:otherwise>
+			</c:choose>
 
-					
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-						<img src="${gallery.imageApath}" height="188" width="250" alt="">
-					</a>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${gallery.id}">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
 		</c:if>
 		<c:if test="${(number.index + 1) % 2 == 0}">
 				<div class="item">
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-					<h3 style="margin-left: 0;">${gallery.title}</h3>
-					</a>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${gallery.id}">
+							<h3 style="margin-left: 0;">${gallery.title}</h3>
+						</a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <h3 style="margin-left: 0;">${gallery.title}</h3>
+			            </a>
+			        </c:if>
 										
 <c:choose>
     <c:when test="${action == 'hotnews'}">
-		<h3 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h3>
+		<h4 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h4>
+		</BR>
     </c:when>
     <c:otherwise>
               
     </c:otherwise>
 </c:choose>
-					<a href="/detail.do?action=${action}&id=${gallery.id}">
-						<img src="${gallery.imageApath}" height="188" width="250" alt="">
-					</a>
+					<c:if test="${gallery.linkA == ''}">
+			            <a href="/detail.do?action=${action}&id=${topBean.id}">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
+			        <c:if test="${gallery.linkA != ''}">
+			            <a href="${gallery.linkA}" target="_blank">
+			                <img src="${gallery.imageApath}" height="188" width="250" alt="">
+			            </a>
+			        </c:if>
 					<p>${gallery.description}</p>
 					<div class="clear"></div>
 				</div>
@@ -301,14 +317,16 @@
 </div>
 
 
+
 <footer>
 <div class="footer_content">
-臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
+
+國立臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
   台北市大安區 106 羅斯福路四段一號 臺灣大學 TEL: 02-33669847
 </div>
 </footer>
 
-
+<div class="w2bslikebox" onclick="$('html,body').scrollTop(0);"><div>
 
 </body>
 </html>

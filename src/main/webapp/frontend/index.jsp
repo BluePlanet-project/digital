@@ -8,12 +8,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<title>科技部數位人文交流平台</title>
-	<link rel="stylesheet" href="/frontend/stylesheets/layout.css">
+	<meta property="og:image" content="http://140.112.145.91/frontend/images/LOGO_f.png"/>
+	
+	<link rel="stylesheet" href="/frontend/stylesheets/layout02.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/modify.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/flexslider.css">
 	<link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="/frontend/js/jquery.slides.min.js"></script>
+	
   	<script src="/frontend/js/jquery.flexslider.js"></script>
         <script src="/frontend/js/js.js"></script>
   	<style type="text/css">
@@ -80,6 +82,8 @@
 
   
     <script>
+	
+	/*
     $(function() {
       $('#slides').slidesjs({
         
@@ -91,13 +95,37 @@
         }
       });
     });
-
+*/
     
     $(window).load(function() {
     	$('.flexslider').flexslider({
     		animation: "slide"
     	});
     });
+	
+	
+	$(window).scroll(function() {
+	if($(window).scrollTop() < 50) {
+       $('#bg_nav').removeClass('menuPostiotionFixed');
+	   $('header').css('display','');
+	}
+	else{
+		 $('#bg_nav').addClass('menuPostiotionFixed');
+		 $('header').css('display','none');
+	}
+	
+	});
+/*
+	$(document).scroll(function() {
+	if ($document.scrollTop() >= 50) {
+    // user scrolled 50 pixels or more;
+    // do stuff
+
+    $('#bg_nav').addClass('menuPostiotionFixed');
+  } else {
+    $element.removeClass(className);
+  }
+});*/
   </script>
 </head>
 <body>
@@ -112,7 +140,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <header>
-	<div class="logo">
+	<div class="logo" id="logo">
 		<a href="/index.do">
 			<img src="/frontend/images/logo.png" height="60" width="300" alt="">
 		</a>
@@ -120,7 +148,7 @@
 
 	 <div class="toplink">
         <ul>
-           <li><a href="#">關於我們</a></li>
+           <li><a href="#" onclick="javascript:alert('您好，若您對數位人文交流平台有任何建議或想法，歡迎您透過以下方式與我們聯繫!\n國立臺灣大學數位人文研究中心 \n市內電話/02-33669847\n電子信箱/dhintaiwan@gmail.com\n臉書粉專/https://www.facebook.com/dhtaiwan\n地址/106 台北市大安區羅斯福路四段一號');">關於我們</a></li>
             <li><a href="mailto:dhintaiwan@gmail.com">我要投稿</a></li>
             <li><a href="mailto:dhintaiwan@gmail.com">聯絡我們</a></li>
  
@@ -142,26 +170,27 @@
 </div>
 -->
 	<div class="search">
-		<script>
-		  (function() {
-		    var cx = '005551680650451778246:j_ubmsw77im';
-		    var gcse = document.createElement('script');
-		    gcse.type = 'text/javascript';
-		    gcse.async = true;
-		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-		        '//cse.google.com/cse.js?cx=' + cx;
-		    var s = document.getElementsByTagName('script')[0];
-		    s.parentNode.insertBefore(gcse, s);
-		  })();
-		</script>
-		<gcse:search></gcse:search>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
 	</div>
 
 </header>
 
 
 <div class="mainsection">
-	<div class="bg_nav">
+	<div class="bg_nav " id="bg_nav">
 		<!-- desktop menu -->
 		<nav>
 			<ul>
@@ -186,20 +215,19 @@
 
 		<!-- portable search -->
 	        <div class="search_portable">
-            <script>
-              (function() {
-                var cx = '005551680650451778246:j_ubmsw77im';
-                var gcse = document.createElement('script');
-                gcse.type = 'text/javascript';
-                gcse.async = true;
-                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-                    '//cse.google.com/cse.js?cx=' + cx;
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(gcse, s);
-              })();
-            </script>
-            <gcse:search></gcse:search>
-        </div>
+<script>
+  (function() {
+    var cx = '002640562740318145717:es0pjra8g94';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
 		
 		<!-- 
 		<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
@@ -259,11 +287,11 @@
 
 <div class="slider-desktop" >
 			<div class="flexslider" >
-				<ul class="slides" style="height:650px">
+				<ul class="slides" style="height:250px">
 					<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
 						<li>
-							<a href="${homebanner.linkA}"><img src="${homebanner.imageApath}" />
-							<p class="flex-caption">
+							<a href="${homebanner.linkA}" target="_blank"><img src="${homebanner.imageApath}" />
+							<p class="flex-caption" >
 								<span style="font-size: 20px; line-height:40px;">${homebanner.title}</span><br />
 								${homebanner.description}
 								
@@ -277,11 +305,23 @@
 
 
 <div class="section1">
-	<h2 id="index_title">${hotnews_title_cht}</h2>
+	<h2 id="index_title"><a href="/gallery.do?action=hotnews">${hotnews_title_cht}
+			The News    </a> <a  href="/gallery.do?action=hotnews" style="float:right; margin-right:5%; margin-top:10px;font-size:15px"> 觀看更多 >> </a> </h2> 
+			
 	<div class="title" id="first-section">
 		<c:forEach items="${hotnewsList}" var="hotnews" varStatus="number">
 			<div class="oop">
-				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><img src="${hotnews.imageApath}"  alt=""></a>
+				<c:if test="${hotnews.linkA == ''}">
+		            <a href="/detail.do?action=hotnews&id=${hotnews.id}"><img src="${hotnews.imageApath}"  alt=""></a>
+		        </c:if>
+		        <c:if test="${hotnews.linkA != ''}">
+		            <a href="${hotnews.linkA}" target="_blank">
+		                <img src="${hotnews.imageApath}"  alt="">
+		            </a>
+		        </c:if>
+				
+			
+				
 				
 				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><h3>${hotnews.title}</h3></a>
 				<a href="/detail.do?action=hotnews&id=${hotnews.id}"><h3>${fn:substring(hotnews.createDate, 0, 11)}</h3></a>
@@ -306,7 +346,7 @@
 		      <img src="/frontend/img/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
 		    </div>
 		-->
-		<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285"><a href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285">數位人文交流平台Taiwan Digital Humanities Forum</a></blockquote></div></div>
+		<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285" data-height="480" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285"><a href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285">數位人文交流平台Taiwan Digital Humanities Forum</a></blockquote></div></div>
 		<!--
 		<div class="fb_1">
 			<div class="fb-page" data-href="https://www.facebook.com/pages/%E6%95%B8%E4%BD%8D%E4%BA%BA%E6%96%87%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0Taiwan-Digital-Humanities-Forum/1566523080258285">科技部數位人文交流平台</a></blockquote></div></div>
@@ -335,9 +375,9 @@
 
 <div class="bg_green">
 	<div class="section3">
-		<a href="/gallery.do?action=research"><h2>數位人文研究計畫<br>
-			Research Planning
-		</h2></a>
+		<h2><a href="/gallery.do?action=research">數位人文研究計畫 │
+			DH Projects</a>  <a href="/gallery.do?action=research" style="float:right; margin-right:5%; margin-top:9px;font-size:15px"> 觀看更多 >> </a>
+		</h2>
 
 	<c:forEach items="${researchList}" var="research" varStatus="number">
 		<c:if test="${(number.index + 1) % 2 == 1}">
@@ -345,9 +385,9 @@
 		</c:if>
 				<div class="database">
 					<div class="dataimg">
-						<a href="/gallery.do?action=research"><img src="${research.imageApath}" height="200" width="288" alt=""></a>
+						<a href="/detail.do?action=research&id=${research.id}"><img src="${research.imageApath}" height="200" width="288" alt=""></a>
 					</div>
-					<a href="/gallery.do?action=research"><h6>${research.title}</h6></a>
+					<a href="/detail.do?action=research&id=${research.id}"><h6>${research.title}</h6></a>
 					<h5>${research.author}</h5>
 					<p>${research.description}</p>
 				</div>
@@ -359,11 +399,70 @@
 </div>
 
 
+	<div class="section3">
+		<h2><a href="/gallery.do?action=interperspective">國際視野 │
+			International Perspectives </a>  <a  href="/gallery.do?action=interperspective" style="float:right; margin-right:5%; margin-top:9px;font-size:15px"> 觀看更多 >> </a>
+		</h2>
 
+
+	<c:forEach items="${interperspectiveList}" var="inter" varStatus="number">
+	<c:choose>
+    <c:when test="${number.index > 3}">
+     
+    </c:when>
+	 <c:otherwise>
+		<c:if test="${(number.index + 1) % 2 == 1}">
+			<div class="section_group">
+		</c:if>
+				<div class="database">
+					<div class="dataimg">
+						<a href="/detail.do?action=interperspective&id=${inter.id}"><img src="${inter.imageApath}" height="200" width="288" alt=""></a>
+					</div>
+					<a href="/detail.do?action=interperspective&id=${inter.id}"><h6>${inter.title}</h6></a>
+					<h5>${inter.author}</h5>
+					<p>${inter.description}</p>
+				</div>
+		<c:if test="${(number.index + 1) % 2 == 0}">
+			</div>
+		</c:if>
+	 </c:otherwise>
+</c:choose>
+	</c:forEach>
+	</div>
+
+
+
+<div class="bg_green">
+	<div class="section3">
+		<h2><a href="/gallery.do?action=converage">專題報導 │ 
+			Feature Reports </a>  <a  href="/gallery.do?action=converage" style="float:right; margin-right:5%; margin-top:9px;font-size:15px"> 觀看更多 >> </a>
+		</h2>
+
+	<c:forEach items="${converageList}" var="con" varStatus="number">
+		<c:if test="${(number.index + 1) % 2 == 1}">
+			<div class="section_group">
+		</c:if>
+				<div class="database">
+					<div class="dataimg">
+						<a href="/detail.do?action=converage&id=${con.id}"><img src="${con.imageApath}" height="200" width="288" alt=""></a>
+					</div>
+					<a href="/detail.do?action=converage&id=${con.id}"><h6>${con.title}</h6></a>
+					<h5>${con.author}</h5>
+					<p>${con.description}</p>
+				</div>
+		<c:if test="${(number.index + 1) % 2 == 0}">
+			</div>
+		</c:if>
+	</c:forEach>
+	</div>
+</div>
+
+
+<!--
 <div class="section2">
 		<div class="globleview">
-			<a href="/gallery.do?action=converage"><h2>國際視野<br>
-			International Perspective</h2>	</a>
+			<a href="/gallery.do?action=converage"><h2>國際視野 │
+			International Perspectives</h2>	</a>
 			<c:forEach items="${interperspectiveList}" var="inter" varStatus="number" begin="0" end="1">
 				<div class="globle_a">
 					<a href="/detail.do?action=interperspective&id=${inter.id}"><img src="${inter.imageApath}" height="100" width="200" alt=""></a>
@@ -374,8 +473,8 @@
 		</div>
 
 		<div class="researchplan">
-			<a href="/gallery.do?action=converage"><h2>專題報導<br>
-			Theme Report</h2></a>
+			<a href="/gallery.do?action=converage"><h2>專題報導 │ 
+			Feature Reports</h2></a>
 			<c:forEach items="${converageList}" var="con" varStatus="number" begin="0" end="1">
 				<div class="globle_a">
 					<a href="/detail.do?action=converage&id=${con.id}"><img src="${con.imageApath}" height="100" width="200" alt=""></a>
@@ -386,24 +485,24 @@
 		</div>
 </div>
 
+-->
 
 
-<div class="bg_blue" >
 			<div class="section4">
-				<h2>研究資源<br>
-					Research Source
+				<h2>研究資源  │
+					Research Resources
 					</h2>
 			<div class="section_group">
 				<div class="database">
 					<div class="dataimg">
-						<a href="/gallery.do?action=dataaddon"><img src="/upload/items/1430719482119.jpg" alt=""></a>
+						<a href="/gallery.do?action=dataaddon"><img src="/frontend/images/01.jpg" alt=""></a>
 					</div>
 					<a href="/gallery.do?action=dataaddon"><h6>數位工具</h6></a>
 					<p>提供文獻分析、地圖繪製等數位工具免費使用。</p>
 				</div>
 				<div class="database">
 					<div class="dataimg">
-						<a href="/gallery.do?action=database"><img src="/upload/items/1430719467705.jpg" alt=""></a>
+						<a href="/gallery.do?action=database"><img src="/frontend/images/02.jpg" alt=""></a>
 					</div>
 					<a href="/gallery.do?action=database"><h6>資料庫系統</h6></a>
 					<p>提供與數位人文相關之資料庫系統供參考。</p>
@@ -413,7 +512,7 @@
 			<div class="section_group">
 				<div class="database">
 					<div class="dataimg">
-						<a href="/gallery.do?action=researchResource"><img src="/upload/items/1430722085219.jpg" alt=""></a>
+						<a href="/gallery.do?action=researchResource"><img src="/frontend/images/03.jpg" alt=""></a>
 					</div>
 					<a href="/gallery.do?action=researchResource"><h6>國外相關網站</h6></a>
 					<p>提供與數位人文相關的網站資源供參考。</p>
@@ -421,14 +520,14 @@
 
 				<div class="database">
 					<div class="dataimg">
-						<a href="/gallery.do?action=relatedWeb"><img src="/upload/items/1430722157790.jpg" alt=""></a>
+						<a href="/gallery.do?action=relatedWeb"><img src="/frontend/images/04.jpg" alt=""></a>
 					</div>
 					<a href="/gallery.do?action=relatedWeb"><h6>國內相關網站</h6></a>
 					<p>提供有關國內研究單位、國外研究單位、相關期刊等資源供參考。</p>
 				</div>
 			</div>
 		</div>
-</div>
+
 
 
 
@@ -439,13 +538,13 @@
 <footer >
 	
 <div class="footer_content"id="tool">
-臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
+國立臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
   台北市大安區 106 羅斯福路四段一號 臺灣大學 TEL: 02-33669847
 </div>
 
 </footer>
 
-
+<div class="w2bslikebox" onclick="$('html,body').scrollTop(0);"><div>
 
 
 </body>
