@@ -290,18 +290,27 @@
 				<ul class="slides" style="height:250px">
 					<c:forEach items="${homebannerList}" var="homebanner" varStatus="number">
 						<li>
-							<a href="${homebanner.linkA}" target="_blank"><img src="${homebanner.imageApath}" />
+							<a href="${homebanner.linkA}" target="_blank">
+							<!-- Chris 上中下分別為桌機版本圖片、平版版本圖片、手機版本圖片)
+							<!--<img src="${homebanner.imageApath}" class="desktop_img"/>-->
+							<img src="${homebanner.imageApath}" class="desktop_img"/>
+							<img src="${homebanner.imageApath}" class="pad_img"/>
+							<img src="${homebanner.imageApath}" class="mobile_img"/>
+							<!--
 							<p class="flex-caption" >
 								<span style="font-size: 20px; line-height:40px;">${homebanner.title}</span><br />
 								${homebanner.description}
 								
 								
-							</p></a>
+							</p>
+							-->
+							
+							</a>
 						</li>
 					</c:forEach>
 				</ul>
 			</div>
-		</div>
+</div>
 
 
 <div class="section1">
@@ -539,12 +548,12 @@
 	
 <div class="footer_content"id="tool">
 國立臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
-  台北市大安區 106 羅斯福路四段一號 臺灣大學 TEL: 02-33669847
+  台北市大安區 106 羅斯福路四段一號 國立臺灣大學 TEL: 02-33669847
 </div>
 
 </footer>
 
-<div class="w2bslikebox" onclick="$('html,body').scrollTop(0);"><div>
+
 
 
 </body>

@@ -253,11 +253,11 @@
 <div class="footer_content">
 
 國立臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
-  台北市大安區 106 羅斯福路四段一號 臺灣大學 TEL: 02-33669847
+  台北市大安區 106 羅斯福路四段一號 國立臺灣大學 TEL: 02-33669847
 </div>
 </footer>
 
-<div class="w2bslikebox" onclick="$('html,body').scrollTop(0);"><div>
+
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'digitalhumanities';

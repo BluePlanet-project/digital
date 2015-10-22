@@ -63,13 +63,28 @@
 										<div id="content_short_msg"></div>
 									</div>
 								</div>
-								<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
-									<div class="hotnews-add-td">內容(長)</div>
-									<div class="hotnews-add-td">
-										<textarea id="content_long_cht" name="content_long_cht" <c:if test="${action != 'homebanner'}">mceEditor="1"</c:if> errMsg="請輸入內容(長)"/></textarea>
-										<div id="content_long_msg"></div>
-									</div>
-								</div>
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
+											<div class="hotnews-add-td">內容(長)</div>
+											<div class="hotnews-add-td">	
+													<textarea id="content_long_cht" name="content_long_cht" style="display:none;" />${item.content_long}</textarea>
+													<div class="adjoined-bottom">
+													<div class="grid-container">
+														<div class="grid-width-100">
+															<div id="editor">
+																${item.content_long}
+															</div>
+														</div>
+													</div>
+										</div></div>
+										
+										</div>
+										
+										<!--
+										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
+											<div class="hotnews-add-td">內容(長)</div>
+											<div class="hotnews-add-td"><textarea id="content_long_cht" name="content_long_cht" <c:if test="${action != 'homebanner'}">mceEditor="1"</c:if> errMsg="請輸入內容(長)"/>${item.content_long}</textarea></div>
+										</div>
+										-->
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">作者</div>
 									<div class="hotnews-add-td">
@@ -94,7 +109,7 @@
 								</div> -->
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">圖片一</div>
-									<div class="hotnews-add-td"><input type="file" id="image_1_cht" name="image_1_cht" formcheck="1" errMsg="請上傳圖片一"/></div>
+									<div class="hotnews-add-td">首頁橫幅圖片建議規格：1600 x 187／其它分頁項圖片建議規格：501 x 334 或 575 x 383 （66：34）M</BR><input type="file" id="image_1_cht" name="image_1_cht" formcheck="1" errMsg="請上傳圖片一"/></div>
 								</div>
 								<!-- <div class="hotnews-add-tr">
 									<div class="hotnews-add-td">圖片二</div>
@@ -318,7 +333,12 @@
 <script type="text/javascript" src="/backend/js/formcheck/script.js"></script>
 <script type="text/javascript" src="/backend/js/formcheck/inputlimit.js"></script>
 <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+
+	<script src="/backend/ckeditor/ckeditor.js?v=1"></script>
+	<script src="/backend/ckeditor/samples/js/sample.js?v=1"></script>
+	<link rel="stylesheet" href="/backend/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
 <script type="text/javascript">
+/*
 $(document).ready(function(){
 	tinymce.init({
 		selector:'textarea#content_long_cht,textarea#content_long_enu',
@@ -326,8 +346,13 @@ $(document).ready(function(){
 		plugins: "image link media"
 	});
 });
-
+*/
 function submit(){
+	//Blacky
+	//alert(CKEDITOR.instances.editor.getData());
+	$('#content_long_cht').val(CKEDITOR.instances.editor.getData());
+	//alert($('#content_long_cht').val());
+	
 	if(formCheck($('#upload'))){
 		if(mceChecker($('#upload'))){
 			$('#description_cht').val($('#description_cht').val().replace(/\n/g, "<br />"));
@@ -335,7 +360,6 @@ function submit(){
 		}
 	}
 }
-
 function generateLink(){
 	$('#link_1_cht').val('/detail.do?action=${action}&id=%ID%');
 }
@@ -377,15 +401,18 @@ $(function() {
           $("#content_short_msg").html("目前輸入:" + data.input + "/" + data.max + " 還剩:" + data.left + "字元");
         }
     }).focus();
-
+	/*
     $('#author_cht').ChineseLengthLimit({
         limitCount: 40,
         isByte: true,
         callback: function (data) {
           $("#author_msg").html("目前輸入:" + data.input + "/" + data.max + " 還剩:" + data.left + "字元");
         }
-    }).focus();
+    }).focus();*/
 });
+</script>
+<script>
+	initSample();
 </script>
 <jsp:include page="/backend/footer/footer.jsp"></jsp:include>
 </body>

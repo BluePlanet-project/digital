@@ -111,13 +111,13 @@
 				<li class="nav_line"></li>
 				<li><a href="/gallery.do?action=interperspective" <c:if test="${action == 'interperspective'}"> style="background: #222"  </c:if>>國際視野</a></li>
 				<li class="nav_line"></li>
-				<li><a href="/index.do#tool">研究資源</a></li>
+				<li><a href="/index.do#tool"  <c:if test="${action == 'dataaddon' || action == 'database'|| action == 'researchResource' || action == 'relatedWeb'}"> style="background: #222"  </c:if>>研究資源</a></li>
 				<!-- <li class="nav_line"></li>
 				<li><a href="/gallery.do?action=knowTaiwan">看見臺灣 </a></li> -->
 			</ul>
 
 		</nav>
-
+		
 		<!-- portable search -->
 	        <div class="search_portable">
    <script>
@@ -136,6 +136,8 @@
         </div>
 
 	</div>
+	
+
 
 </div>
 <!-- mobile-menu -->
@@ -160,6 +162,34 @@
 
 
 <div class="gallery_title">
+	<c:if test="${action == 'dataaddon' || action == 'database'|| action == 'researchResource' || action == 'relatedWeb'}"> 
+		<div class="bg_nav2" id="bg_nav2">
+		<!-- desktop menu -->
+
+		<nav >
+			<div class="bg_nav3" id="bg_nav3">
+			<ul>
+				<li><a href="/gallery.do?action=dataaddon" <c:if test="${action == 'dataaddon'}"> style="background: #C0C0C0"  </c:if>>數位工具</a></li>
+				<li class="nav_line2"></li>
+				<li><a href="/gallery.do?action=database" <c:if test="${action == 'database'}"> style="background: #C0C0C0"  </c:if>>資料庫系統</a></li>
+				<li class="nav_line2"></li>
+				<li><a href="/gallery.do?action=researchResource" <c:if test="${action == 'researchResource'}"> style="background: #C0C0C0"  </c:if>>國外相關網站</a></li>
+				<li class="nav_line2"></li>
+				<!-- <li><a href="/gallery.do?action=researchResource">數位人文研究資源</a></li>
+				<li class="nav_line"></li> -->
+				<li><a href="/gallery.do?action=relatedWeb" <c:if test="${action == 'relatedWeb'}"> style="background: #C0C0C0"  </c:if>>國內相關網站</a></li>
+				
+			
+			</ul>
+			</div>
+
+		</nav>
+		<!-- portable search -->
+
+
+	</div>
+	
+	 </c:if>
 <h2>${gallery_title_cht}</h2>	
 </div>
 
@@ -322,11 +352,11 @@
 <div class="footer_content">
 
 國立臺灣大學數位人文研究中心 版權所有 © All Rights Reserved. <br>
-  台北市大安區 106 羅斯福路四段一號 臺灣大學 TEL: 02-33669847
+  台北市大安區 106 羅斯福路四段一號 國立臺灣大學 TEL: 02-33669847
 </div>
 </footer>
 
-<div class="w2bslikebox" onclick="$('html,body').scrollTop(0);"><div>
+
 
 </body>
 </html>
