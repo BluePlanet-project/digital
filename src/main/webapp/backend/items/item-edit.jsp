@@ -170,7 +170,12 @@
 											</div>
 										</div> -->
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">檔案下載一</div>
+											<div class="hotnews-add-td">
+												檔案下載一<br />
+												<c:if test="${item.fileApath != ''}">
+													<input type="checkbox" id="del_file_a_cht" name="del_file_a_cht"/>刪除檔案
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_1_cht" name="file_1_cht" />&nbsp;
 												<c:if test="${item.fileApath != ''}">
 													<a href="${item.fileApath}" target="_blank">下載</a>
@@ -178,7 +183,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">檔案下載二</div>
+											<div class="hotnews-add-td">
+												檔案下載二<br />
+												<c:if test="${item.fileBpath != ''}">
+													<input type="checkbox" id="del_file_b_cht" name="del_file_b_cht"/>刪除檔案
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_2_cht" name="file_2_cht" />&nbsp;
 												<c:if test="${item.fileBpath != ''}">
 													<a href="${item.fileBpath}" target="_blank">下載</a>
@@ -186,7 +196,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">檔案下載三</div>
+											<div class="hotnews-add-td">
+												檔案下載三<br />
+												<c:if test="${item.fileCpath != ''}">
+													<input type="checkbox" id="del_file_c_cht" name="del_file_c_cht"/>刪除檔案
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_3_cht" name="file_3_cht" />&nbsp;
 												<c:if test="${item.fileCpath != ''}">
 													<a href="${item.fileCpath}" target="_blank">下載</a>
@@ -348,7 +363,12 @@
 											</div>
 										</div> -->
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">FileA</div>
+											<div class="hotnews-add-td">
+												FileA<br />
+												<c:if test="${item.fileApath != ''}">
+													<input type="checkbox" id="del_file_a_enu" name="del_file_a_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_1_enu" name="file_1_enu" />&nbsp;
 												<c:if test="${item.fileApath != ''}">
 													<a href="${item.fileApath}" target="_blank">Download</a>
@@ -356,7 +376,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">FileB</div>
+											<div class="hotnews-add-td">
+												FileB<br />
+												<c:if test="${item.fileBpath != ''}">
+													<input type="checkbox" id="del_file_b_enu" name="del_file_b_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_2_enu" name="file_2_enu" />&nbsp;
 												<c:if test="${item.fileBpath != ''}">
 													<a href="${item.fileBpath}" target="_blank">Download</a>
@@ -364,7 +389,12 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">FileC</div>
+											<div class="hotnews-add-td">
+												FileC<br />
+												<c:if test="${item.fileCpath != ''}">
+													<input type="checkbox" id="del_file_c_enu" name="del_file_c_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="file_3_enu" name="file_3_enu" />&nbsp;
 												<c:if test="${item.fileCpath != ''}">
 													<a href="${item.fileCpath}" target="_blank">Download</a>

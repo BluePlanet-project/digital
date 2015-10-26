@@ -360,4 +360,30 @@ public class HotNewsDAO {
 			conn.close();
 		}
 	}
+	
+	public void deleteFile(int id, int langId, int fileNo) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try{
+			String sql = "";
+			if(fileNo == 1){
+				sql = "update digital_hotnews set hotnews_filePathA = '' where hotnews_id = ? and hotnews_lang_id = ? ";				
+			}else if(fileNo == 2){
+				sql = "update digital_hotnews set hotnews_filePathB = '' where hotnews_id = ? and hotnews_lang_id = ? ";	
+			}else{
+				sql = "update digital_hotnews set hotnews_filePathC = '' where hotnews_id = ? and hotnews_lang_id = ? ";	
+			}
+			conn = DriverManager.getConnection("proxool.digital");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			pstmt.setInt(2, langId);
+			pstmt.execute();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			pstmt.close();
+			conn.close();
+		}
+	}
 }
