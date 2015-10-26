@@ -282,6 +282,7 @@
 			    <c:when test="${action == 'hotnews'}">
 					<h4 style="margin-left: 0;">${fn:substring(gallery.createDate, 0, 11)}</h4>
 							</BR>
+
 			    </c:when>
 			    <c:otherwise>
 			              

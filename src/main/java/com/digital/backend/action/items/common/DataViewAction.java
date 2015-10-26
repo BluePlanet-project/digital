@@ -53,6 +53,7 @@ private static final long serialVersionUID = 1L;
 		ParameterParser parser = new ParameterParser(request);
 		int id = parser.getIntParameter("id", 0);
 		String action = parser.getStringParameter("action", "");
+		int page = parser.getIntParameter("page", 1);
 		
 		ArrayList<CommonDataBean> list = new ArrayList<CommonDataBean>();
 		ItemAction itemAction = ItemAction.getAction(action);
@@ -99,6 +100,7 @@ private static final long serialVersionUID = 1L;
 		ArrayList<BreadCrumbBean> level_two = BreadCrumbDAO.getInstance().getAllBreadByLevel(2);
 		ArrayList<BreadCrumbBean> level_three = BreadCrumbDAO.getInstance().getAllBreadByLevel(3);
 		
+		request.setAttribute("page", page);
 		request.setAttribute("itemsList", list);
 		request.setAttribute("level_one", level_one);
 		request.setAttribute("level_two", level_two);

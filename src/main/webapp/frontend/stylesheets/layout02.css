@@ -226,7 +226,6 @@ header {
     transition: all 0.3s ease;
   }
   header .toplink ul li a {
-    
     font-size: 13px;
     float: right;
     padding: 0 10px;
@@ -703,7 +702,6 @@ header {
   width: 100%;
   background: white;
 }
-
 }
 
 @media (min-width: 0) {
@@ -719,8 +717,6 @@ header {
     display: block;
     clear: both;
   }
-
-
 }
 @media (min-width: 540px) {
   .search_portable {
@@ -735,8 +731,6 @@ header {
     display: block;
     clear: both;
   }
-
-
 }
 @media (min-width: 882px) {
   .search_portable {
@@ -956,7 +950,6 @@ header {
     background:#C0C0C0;
   }
 }
-
 @media (min-width: 0) {
   .nav_line {
     max-width: 450px;
@@ -1000,7 +993,6 @@ header {
     clear: both;
   }
 }
-
 
 @media (min-width: 882px) {
   .nav_line2 {
@@ -1221,7 +1213,6 @@ header {
     margin-bottom: 10px;
     padding-bottom: 10px;
 	padding-top:10px
-   
   }
   .section1 .title .oop img {
     display: block;
@@ -1684,8 +1675,6 @@ header {
   .section3 .section_group {
     width: 47.9166666667%;
     float: left;
-
-    
   }
   .section3 .database {
     padding: 0 20px;
@@ -1848,7 +1837,6 @@ header {
   .section4 .section_group {
     width: 47.9166666667%;
     float: left;
-    
   }
   .section4 .database {
     padding: 0 20px;
@@ -2608,7 +2596,6 @@ header .topsocial {
 }
 }
 
-
 .w2bslikebox {
     background: url("/frontend/images/backtotop.png") no-repeat scroll left center transparent !important;
     display: block;
@@ -2670,6 +2657,5 @@ header .topsocial {
 	display:inline;
 }
 }
-
 
 /*# sourceMappingURL=layout.css.map */

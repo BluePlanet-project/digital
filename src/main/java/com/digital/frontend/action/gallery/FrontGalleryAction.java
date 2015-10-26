@@ -90,17 +90,17 @@ public class FrontGalleryAction extends HttpServlet{
 			case dataaddon:
 				list = DataAddonDAO.getInstance().getGalleryData(1);
 				topBean = DataAddonDAO.getInstance().getTopGalleryData(1);
-				gallery_title_cht = "資料工具集";
+				gallery_title_cht = "數位工具";
 				break;
 			case researchResource:
 				list = ResearchResourceDAO.getInstance().getGalleryData(1);
 				topBean = ResearchResourceDAO.getInstance().getTopGalleryData(1);
-				gallery_title_cht = "研究資源";
+				gallery_title_cht = "國外相關網站";
 				break;
 			case relatedWeb:
 				list = RelatedWebDAO.getInstance().getGalleryData(1);
 				topBean = RelatedWebDAO.getInstance().getTopGalleryData(1);
-				gallery_title_cht = "相關網站";
+				gallery_title_cht = "國內相關網站";
 				break;
 			case academic:
 				list = AcademicDAO.getInstance().getGalleryData(1);

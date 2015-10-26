@@ -175,7 +175,9 @@
 		</c:if>
 -->
 
+
 <script type='text/javascript' src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js' data-shr-siteid='46e002a9a52bc68dbf59ab986236da1c' data-cfasync='false' async='async'></script>
+
 
 <div class='shareaholic-canvas' data-app='share_buttons' data-app-id='20750187'></div>
 
@@ -228,7 +230,9 @@
 		        </c:if>
 			
 				
+
 				<a href="/detail.do?action=${action}&id=${item.id}"><h6>${item.title}</h6></a>
+
 				<!-- <p>${item.description}</p> -->
 			</div>
 		</c:forEach>

@@ -89,6 +89,13 @@ public class DataEditAction extends HttpServlet{
 		
 		//del image
 		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : "1");
+		//del file
+		int del_file_a_cht = Integer.parseInt(parameters.get("del_file_a_cht") == null ? "0" : "1");
+		int del_file_b_cht = Integer.parseInt(parameters.get("del_file_b_cht") == null ? "0" : "1");
+		int del_file_c_cht = Integer.parseInt(parameters.get("del_file_c_cht") == null ? "0" : "1");
+		
+		//keep page number
+		int page = Integer.parseInt(parameters.get("page") == null ? "1" : parameters.get("page").toString());
 		
 		//ENU
 		String title_enu = parameters.get("title_enu") == null ? "" : parameters.get("title_enu").toString();
@@ -114,6 +121,10 @@ public class DataEditAction extends HttpServlet{
 		
 		//del image
 		int del_img_1_enu = Integer.parseInt(parameters.get("del_img_1_enu") == null ? "0" :  "1");
+		//del file
+		int del_file_a_enu = Integer.parseInt(parameters.get("del_file_a_enu") == null ? "0" : "1");
+		int del_file_b_enu = Integer.parseInt(parameters.get("del_file_b_enu") == null ? "0" : "1");
+		int del_file_c_enu = Integer.parseInt(parameters.get("del_file_c_enu") == null ? "0" : "1");
 		
 		//set up bean
 		//CHT
@@ -149,11 +160,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					HotNewsDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case interperspective:
 				InterPerspectiveDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					InterPerspectiveDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case converage:
@@ -161,11 +190,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					ConverageDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case research:
 				ResearchDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					ResearchDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case knowTaiwan:
@@ -173,11 +220,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					KnowTaiwanDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case database:
 				DataBaseDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					DataBaseDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case dataaddon:
@@ -185,11 +250,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					DataAddonDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case researchResource:
 				ResearchResourceDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					ResearchResourceDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case relatedWeb:
@@ -197,17 +280,44 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					RelatedWebDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case academic:
 				AcademicDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					AcademicDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case homebanner:
 				HomeBannerDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					HomeBannerDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			default:
@@ -310,7 +420,7 @@ public class DataEditAction extends HttpServlet{
 				break;
 		}
 		
-		String url = "/backend/item-list.do?action=" + action;
+		String url = "/backend/item-list.do?action=" + action + "&page=" + page;
 		response.sendRedirect(url);
 	}
 	
