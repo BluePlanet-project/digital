@@ -205,11 +205,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					ResearchDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case knowTaiwan:
 				KnowTaiwanDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					KnowTaiwanDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case database:
@@ -217,11 +235,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					DataBaseDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case dataaddon:
 				DataAddonDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					DataAddonDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case researchResource:
@@ -229,11 +265,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					ResearchResourceDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case relatedWeb:
 				RelatedWebDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					RelatedWebDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case academic:
@@ -241,11 +295,29 @@ public class DataEditAction extends HttpServlet{
 				if(del_img_1_cht == 1){
 					AcademicDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
 				}
+				if(del_file_a_cht == 1){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
+				}
 				break;
 			case homebanner:
 				HomeBannerDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
 					HomeBannerDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+				}
+				if(del_file_a_cht == 1){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_file_a_cht == 2){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_file_a_cht == 3){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			default:
