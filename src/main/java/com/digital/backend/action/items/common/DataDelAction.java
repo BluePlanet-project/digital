@@ -50,6 +50,7 @@ public class DataDelAction extends HttpServlet{
 		try{
 			int id = parser.getIntParameter("id", 0);
 			String action = parser.getStringParameter("action", "");
+			int page = parser.getIntParameter("page", 1);
 			
 			ItemAction itemAction = ItemAction.getAction(action);
 			if(id != 0){
@@ -89,7 +90,7 @@ public class DataDelAction extends HttpServlet{
 				}
 			}
 			
-			String url = "/backend/item-list.do?action=" + action;
+			String url = "/backend/item-list.do?action=" + action + "&page=" + page;
 			response.sendRedirect(url);
 		}catch(Exception e){
 			throw e;

@@ -79,7 +79,7 @@ $(function() {
 
 function deleteItem(id){
 	if(confirm("確定要刪除?")){
-		window.location.href = "/backend/item-delete.do?action=${action}&id=" + id;
+		window.location.href = "/backend/item-delete.do?action=${action}&id=" + id + "&page=${page}";
 	}
 }
 
