@@ -3,7 +3,9 @@ package com.digital.backend.action.items.common;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Hashtable;
 
 import javax.servlet.ServletException;
@@ -86,9 +88,15 @@ public class DataEditAction extends HttpServlet{
 		String content_long_cht = parameters.get("content_long_cht") == null ? "" : parameters.get("content_long_cht").toString();
 		int top_cht = Integer.parseInt(parameters.get("top_cht") == null ? "0" : parameters.get("top_cht").toString());
 		int enabled_cht = Integer.parseInt(parameters.get("enabled_cht") == null ? "0" : parameters.get("enabled_cht").toString());
+		String publish_time = parameters.get("publish_time_cht") == null ? "0" : parameters.get("publish_time_cht").toString();
+		Date date = new Date(publish_time);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		publish_time = sdf.format(date);
 		
 		//del image
 		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : "1");
+		int del_img_2_cht = Integer.parseInt(parameters.get("del_img_2_cht") == null ? "0" : "1");
+		int del_img_3_cht = Integer.parseInt(parameters.get("del_img_3_cht") == null ? "0" : "1");
 		//del file
 		int del_file_a_cht = Integer.parseInt(parameters.get("del_file_a_cht") == null ? "0" : "1");
 		int del_file_b_cht = Integer.parseInt(parameters.get("del_file_b_cht") == null ? "0" : "1");
@@ -121,6 +129,8 @@ public class DataEditAction extends HttpServlet{
 		
 		//del image
 		int del_img_1_enu = Integer.parseInt(parameters.get("del_img_1_enu") == null ? "0" :  "1");
+		int del_img_2_enu = Integer.parseInt(parameters.get("del_img_2_enu") == null ? "0" :  "1");
+		int del_img_3_enu = Integer.parseInt(parameters.get("del_img_3_enu") == null ? "0" :  "1");
 		//del file
 		int del_file_a_enu = Integer.parseInt(parameters.get("del_file_a_enu") == null ? "0" : "1");
 		int del_file_b_enu = Integer.parseInt(parameters.get("del_file_b_enu") == null ? "0" : "1");
@@ -151,6 +161,7 @@ public class DataEditAction extends HttpServlet{
 		bean.setEnabled(enabled_cht);
 		bean.setContent_short(content_short_cht);
 		bean.setContent_long(content_long_cht);
+		bean.setPublishTime(publish_time);
 
 		String action = parameters.get("action") == null ? "" : parameters.get("action").toString();
 		ItemAction itemAction = ItemAction.getAction(action);
@@ -158,165 +169,231 @@ public class DataEditAction extends HttpServlet{
 			case hotnews:				
 				HotNewsDAO.getInstance().updateHotNews(bean);
 				if(del_img_1_cht == 1){
-					HotNewsDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					HotNewsDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					HotNewsDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					HotNewsDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case interperspective:
 				InterPerspectiveDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					InterPerspectiveDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					InterPerspectiveDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					InterPerspectiveDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					InterPerspectiveDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					InterPerspectiveDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case converage:
 				ConverageDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					ConverageDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					ConverageDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					ConverageDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					ConverageDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case research:
 				ResearchDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					ResearchDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					ResearchDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					ResearchDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					ResearchDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case knowTaiwan:
 				KnowTaiwanDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					KnowTaiwanDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					KnowTaiwanDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					KnowTaiwanDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					KnowTaiwanDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case database:
 				DataBaseDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					DataBaseDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					DataBaseDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					DataBaseDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					DataBaseDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case dataaddon:
 				DataAddonDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					DataAddonDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					DataAddonDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					DataAddonDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					DataAddonDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case researchResource:
 				ResearchResourceDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					ResearchResourceDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					ResearchResourceDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					ResearchResourceDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					ResearchResourceDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case relatedWeb:
 				RelatedWebDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					RelatedWebDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					RelatedWebDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					RelatedWebDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					RelatedWebDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case academic:
 				AcademicDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					AcademicDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					AcademicDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					AcademicDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					AcademicDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
 			case homebanner:
 				HomeBannerDAO.getInstance().updateData(bean);
 				if(del_img_1_cht == 1){
-					HomeBannerDAO.getInstance().deleteImageA(id, ITEM_LANG_CHT);
+					HomeBannerDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 1);
+				}
+				if(del_img_2_cht == 1){
+					HomeBannerDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 2);
+				}
+				if(del_img_3_cht == 1){
+					HomeBannerDAO.getInstance().deleteImage(id, ITEM_LANG_CHT, 3);
 				}
 				if(del_file_a_cht == 1){
 					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 1);
 				}
-				if(del_file_a_cht == 2){
+				if(del_file_b_cht == 1){
 					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 2);
 				}
-				if(del_file_a_cht == 3){
+				if(del_file_c_cht == 1){
 					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_CHT, 3);
 				}
 				break;
@@ -353,67 +430,232 @@ public class DataEditAction extends HttpServlet{
 			case hotnews:				
 				HotNewsDAO.getInstance().updateHotNews(bean);
 				if(del_img_1_enu == 1){
-					HotNewsDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					HotNewsDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					HotNewsDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					HotNewsDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					HotNewsDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case interperspective:
 				InterPerspectiveDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					InterPerspectiveDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					InterPerspectiveDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					InterPerspectiveDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					InterPerspectiveDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case converage:
 				ConverageDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					ConverageDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					ConverageDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					ConverageDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					ConverageDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					ConverageDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case research:
 				ResearchDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					ResearchDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					ResearchDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					ResearchDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					ResearchDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					ResearchDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case knowTaiwan:
 				KnowTaiwanDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					KnowTaiwanDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					KnowTaiwanDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					KnowTaiwanDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					KnowTaiwanDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					KnowTaiwanDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case database:
 				DataBaseDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					DataBaseDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					DataBaseDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					DataBaseDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					DataBaseDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					DataBaseDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case dataaddon:
 				DataAddonDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					DataAddonDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					DataAddonDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					DataAddonDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					DataAddonDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					DataAddonDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case researchResource:
 				ResearchResourceDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					ResearchResourceDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					ResearchResourceDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					ResearchResourceDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					ResearchResourceDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					ResearchResourceDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case relatedWeb:
 				RelatedWebDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					RelatedWebDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					RelatedWebDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					RelatedWebDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					RelatedWebDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					RelatedWebDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case academic:
 				AcademicDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					AcademicDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					AcademicDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					AcademicDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					AcademicDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					AcademicDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			case homebanner:
 				HomeBannerDAO.getInstance().updateData(bean);
 				if(del_img_1_enu == 1){
-					HomeBannerDAO.getInstance().deleteImageA(id, ITEM_LANG_ENU);
+					HomeBannerDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_img_2_enu == 1){
+					HomeBannerDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_img_3_enu == 1){
+					HomeBannerDAO.getInstance().deleteImage(id, ITEM_LANG_ENU, 3);
+				}
+				if(del_file_a_enu == 1){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 1);
+				}
+				if(del_file_b_enu == 1){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 2);
+				}
+				if(del_file_c_enu == 1){
+					HomeBannerDAO.getInstance().deleteFile(id, ITEM_LANG_ENU, 3);
 				}
 				break;
 			default:

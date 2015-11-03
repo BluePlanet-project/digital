@@ -71,8 +71,8 @@ public class HotNewsDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_hotnews (id, hotnews_id, hotnews_lang_id, hotnews_title, hotnews_subtitle, hotnews_description, hotnews_author, hotnews_linkA, ")
 				.append(" hotnews_linkB, hotnews_linkC, hotnews_imgPathA, hotnews_imgPathB, hotnews_imgPathC, hotnews_breadcrumbA, hotnews_breadcrumbB, hotnews_breadcrumbC, ")
-				.append(" hotnews_filePathA, hotnews_filePathB, hotnews_filePathC, hotnews_createDate, hotnews_top, hotnews_enabled, hotnews_delete, displayOrder, hotnews_content_short, hotnews_content_long ) ")
-				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?) ");
+				.append(" hotnews_filePathA, hotnews_filePathB, hotnews_filePathC, hotnews_createDate, hotnews_top, hotnews_enabled, hotnews_delete, displayOrder, hotnews_content_short, hotnews_content_long, publish_time ) ")
+				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
 			pstmt= conn.prepareStatement(sql.toString());
@@ -101,6 +101,7 @@ public class HotNewsDAO {
 			pstmt.setBoolean(22, false);
 			pstmt.setString(23, bean.getContent_short());
 			pstmt.setString(24, bean.getContent_long());
+			pstmt.setString(25, bean.getPublishTime());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -121,7 +122,8 @@ public class HotNewsDAO {
 			sql.append("update digital_hotnews set hotnews_title = ?, hotnews_subtitle = ?, hotnews_description = ?, ")
 				.append("                                           hotnews_author = ?, hotnews_linkA = ?, hotnews_linkB = ?, hotnews_linkC = ?,  ")
 				.append("                                           hotnews_breadcrumbA = ?, hotnews_breadcrumbB = ?, hotnews_breadcrumbC = ?,")
-				.append("                                           hotnews_top = ?, hotnews_enabled = ?, hotnews_content_short = ?, hotnews_content_long = ? ");
+				.append("                                           hotnews_top = ?, hotnews_enabled = ?, hotnews_content_short = ?, hotnews_content_long = ?, ")
+				.append("											   publish_time = ? ");
 			
 			if(!"".equals(bean.getImageApath())){
 				sql.append(",hotnews_imgPathA = '" + bean.getImageApath() + "'");	
@@ -160,6 +162,7 @@ public class HotNewsDAO {
 			pstmt.setBoolean(12, bean.getEnabled() == 1 ? true : false);
 			pstmt.setString(13, bean.getContent_short());
 			pstmt.setString(14, bean.getContent_long());
+			pstmt.setString(15, bean.getPublishTime());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -232,7 +235,7 @@ public class HotNewsDAO {
 		ArrayList<CommonDataBean> list = new ArrayList<CommonDataBean>();
 		
 		try{
-			String sql = "select * from digital_hotnews where hotnews_lang_id = 1 and hotnews_delete = false order by hotnews_id desc limit ?, ? ";//only get cht version
+			String sql = "select * from digital_hotnews where hotnews_lang_id = 1 and hotnews_delete = false order by publish_time desc limit ?, ? ";//only get cht version
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, (page - 1) * page_size);
@@ -266,6 +269,7 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -342,12 +346,20 @@ public class HotNewsDAO {
 		}
 	}
 	
-	public void deleteImageA(int id, int langId) throws Exception{
+	public void deleteImage(int id, int langId, int imageNo) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
+		String sql = "";
 		try{
-			String sql = "update digital_hotnews set hotnews_imgPathA = '' where hotnews_id = ? and hotnews_lang_id = ? ";
+			if(imageNo == 1){				
+				sql = "update digital_hotnews set hotnews_imgPathA = '' where hotnews_id = ? and hotnews_lang_id = ? ";
+			}else if(imageNo == 2){
+				sql = "update digital_hotnews set hotnews_imgPathB = '' where hotnews_id = ? and hotnews_lang_id = ? ";
+			}else{
+				sql = "update digital_hotnews set hotnews_imgPathC = '' where hotnews_id = ? and hotnews_lang_id = ? ";
+			}
+		
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);

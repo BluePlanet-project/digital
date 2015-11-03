@@ -50,60 +50,73 @@ public class FrontGalleryAction extends HttpServlet{
 			HttpServletResponse response) throws Exception{
 		ParameterParser parser = new ParameterParser(request);
 		
+		int page = parser.getIntParameter("page", 1);
+		int page_size = parser.getIntParameter("page_size", 10);
 		String action = parser.getStringParameter("action", "");
 		ItemAction itemAction = ItemAction.getAction(action);
 		ArrayList<CommonDataBean> list = new ArrayList<CommonDataBean>();
+		int total_count = 0;
 		CommonDataBean topBean = new CommonDataBean();
 		String gallery_title_cht = "";
 		
 		switch(itemAction){
 			case hotnews:
-				list = HotNewsDAO.getInstance().getGalleryData(1);
+				list = HotNewsDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = HotNewsDAO.getInstance().getGalleryDataCount(1);
 				topBean = HotNewsDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "最新消息";
 				break;
 			case interperspective:
-				list = InterPerspectiveDAO.getInstance().getGalleryData(1);
+				list = InterPerspectiveDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = InterPerspectiveDAO.getInstance().getGalleryDataCount(1);
 				topBean = InterPerspectiveDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "國際視野";
 				break;
 			case converage:
-				list = ConverageDAO.getInstance().getGalleryData(1);
+				list = ConverageDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = ConverageDAO.getInstance().getGalleryDataCount(1);
 				topBean = ConverageDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "專題報導";
 				break;
 			case research:
-				list = ResearchDAO.getInstance().getGalleryData(1);
+				list = ResearchDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = ResearchDAO.getInstance().getGalleryDataCount(1);
 				topBean = ResearchDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "研究計畫";
 				break;
 			case knowTaiwan:
-				list = KnowTaiwanDAO.getInstance().getGalleryData(1);
+				list = KnowTaiwanDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = KnowTaiwanDAO.getInstance().getGalleryDataCount(1);
 				topBean = KnowTaiwanDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "看見台灣";
 				break;
 			case database:
-				list = DataBaseDAO.getInstance().getGalleryData(1);
+				list = DataBaseDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = DataBaseDAO.getInstance().getGalleryDataCount(1);
 				topBean = DataBaseDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "資料庫系統";
 				break;
 			case dataaddon:
-				list = DataAddonDAO.getInstance().getGalleryData(1);
+				list = DataAddonDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = DataAddonDAO.getInstance().getGalleryDataCount(1);
 				topBean = DataAddonDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "數位工具";
 				break;
 			case researchResource:
-				list = ResearchResourceDAO.getInstance().getGalleryData(1);
+				list = ResearchResourceDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = ResearchResourceDAO.getInstance().getGalleryDataCount(1);
 				topBean = ResearchResourceDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "國外相關網站";
 				break;
 			case relatedWeb:
-				list = RelatedWebDAO.getInstance().getGalleryData(1);
+				list = RelatedWebDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = RelatedWebDAO.getInstance().getGalleryDataCount(1);
 				topBean = RelatedWebDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "國內相關網站";
 				break;
 			case academic:
-				list = AcademicDAO.getInstance().getGalleryData(1);
+				list = AcademicDAO.getInstance().getGalleryData(1, page, page_size);
+				total_count = AcademicDAO.getInstance().getGalleryDataCount(1);
 				topBean = AcademicDAO.getInstance().getTopGalleryData(1);
 				gallery_title_cht = "學術活動";
 				break;
@@ -115,7 +128,9 @@ public class FrontGalleryAction extends HttpServlet{
 		
 		request.setAttribute("action", action);
 		request.setAttribute("galleryList", list);
-		request.setAttribute("galleryTotal", list.size());
+		request.setAttribute("galleryTotal", total_count);
+		request.setAttribute("page", page);
+		request.setAttribute("page_size", page_size);
 		request.setAttribute("topBean", topBean);
 		request.setAttribute("gallery_title_cht", gallery_title_cht);
 		

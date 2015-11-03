@@ -70,8 +70,8 @@ public class HomeBannerDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_homebanner (serialno, id, lang_id, title, subtitle, description, author, linkA, ")
 				.append(" linkB, linkC, imgPathA, imgPathB, imgPathC, breadcrumbA, breadcrumbB, breadcrumbC, ")
-				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder ) ")
-				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1) ");
+				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, publish_time ) ")
+				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
 			pstmt= conn.prepareStatement(sql.toString());
@@ -98,6 +98,7 @@ public class HomeBannerDAO {
 			pstmt.setBoolean(20, bean.getTop() == 1 ? true : false);
 			pstmt.setBoolean(21, bean.getEnabled() == 1 ? true : false);
 			pstmt.setBoolean(22, false);
+			pstmt.setString(23, bean.getPublishTime());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -118,7 +119,7 @@ public class HomeBannerDAO {
 			sql.append("update digital_homebanner set title = ?, subtitle = ?, description = ?, ")
 				.append("                                           author = ?, linkA = ?, linkB = ?, linkC = ?,  ")
 				.append("                                           breadcrumbA = ?, breadcrumbB = ?, breadcrumbC = ?,")
-				.append("                                           top = ?, enabled = ? ");
+				.append("                                           top = ?, enabled = ?, publish_time = ? ");
 			
 			if(!"".equals(bean.getImageApath())){
 				sql.append(",imgPathA = '" + bean.getImageApath() + "'");	
@@ -155,6 +156,7 @@ public class HomeBannerDAO {
 			pstmt.setInt(10, bean.getBreadcrumbC());
 			pstmt.setBoolean(11, bean.getTop() == 1 ? true : false);
 			pstmt.setBoolean(12, bean.getEnabled() == 1 ? true : false);
+			pstmt.setString(13, bean.getPublishTime());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -257,6 +259,7 @@ public class HomeBannerDAO {
 				bean.setEnabled(rs.getInt("enabled"));
 				bean.setCreateDate(rs.getString("createDate"));
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -333,12 +336,19 @@ public class HomeBannerDAO {
 		}
 	}
 	
-	public void deleteImageA(int id, int langId) throws Exception{
+	public void deleteImage(int id, int langId, int imageNo) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
+		String sql = "";
 		try{
-			String sql = "update digital_homebanner set imgPathA = '' where id = ? and lang_id = ? ";
+			if(imageNo == 1){				
+				sql = "update digital_homebanner set imgPathA = '' where id = ? and lang_id = ? ";
+			}else if(imageNo == 2){
+				sql = "update digital_homebanner set imgPathB = '' where id = ? and lang_id = ? ";
+			}else{
+				sql = "update digital_homebanner set imgPathC = '' where id = ? and lang_id = ? ";
+			}
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);

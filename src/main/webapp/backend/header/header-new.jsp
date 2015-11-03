@@ -39,7 +39,9 @@ request.setAttribute("menu_id", menu_id);
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>TDH後台管理系統</title>
 <link rel="stylesheet" href="/backend/css/header/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
 <div id="container">

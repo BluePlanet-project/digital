@@ -26,6 +26,7 @@ public class CommonDataBean {
 	int displayOrder;
 	String content_short;
 	String content_long;
+	String publishTime;
 	public int getId() {
 		return id;
 	}
@@ -175,5 +176,11 @@ public class CommonDataBean {
 	}
 	public void setContent_long(String content_long) {
 		this.content_long = content_long;
+	}
+	public String getPublishTime() {
+		return publishTime;
+	}
+	public void setPublishTime(String publishTime) {
+		this.publishTime = publishTime;
 	}
 }

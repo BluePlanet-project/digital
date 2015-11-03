@@ -111,14 +111,14 @@
 									<div class="hotnews-add-td">圖片一</div>
 									<div class="hotnews-add-td">首頁橫幅圖片建議規格：1600 x 187／其它分頁項圖片建議規格：501 x 334 或 575 x 383 （66：34）M</BR><input type="file" id="image_1_cht" name="image_1_cht" formcheck="1" errMsg="請上傳圖片一"/></div>
 								</div>
-								<!-- <div class="hotnews-add-tr">
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">圖片二</div>
 									<div class="hotnews-add-td"><input type="file" id="image_2_cht" name="image_2_cht" /></div>
 								</div>
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">圖片三</div>
 									<div class="hotnews-add-td"><input type="file" id="image_3_cht" name="image_3_cht" /></div>
-								</div> -->
+								</div>
 								<!-- <div class="hotnews-add-tr">
 									<div class="hotnews-add-td">分類標籤</div>
 									<div class="hotnews-add-td">
@@ -160,6 +160,10 @@
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">新增日期</div>
 									<div class="hotnews-add-td"></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">發布日期</div>
+									<div class="hotnews-add-td"><input type="text" class="datepicker" id="publish_time_cht" name="publish_time_cht" formcheck="1" errMsg="請輸入發布時間"/></div>
 								</div>
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">瀏覽次數</div>
@@ -242,7 +246,7 @@
 									<div class="hotnews-add-td">ImageA</div>
 									<div class="hotnews-add-td"><input type="file" id="image_1_enu" name="image_1_enu" /></div>
 								</div>
-								<!-- <div class="hotnews-add-tr">
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">ImageB</div>
 									<div class="hotnews-add-td"><input type="file" id="image_2_enu" name="image_2_enu" /></div>
 								</div>
@@ -250,7 +254,7 @@
 									<div class="hotnews-add-td">ImageC</div>
 									<div class="hotnews-add-td"><input type="file" id="image_3_enu" name="image_3_enu" /></div>
 								</div>
-								<div class="hotnews-add-tr">
+								<!-- <div class="hotnews-add-tr">
 									<div class="hotnews-add-td">Breadcrumb</div>
 									<div class="hotnews-add-td">
 										<select id="breadcrumb_1" name="breadcrumb_1_enu">
@@ -291,6 +295,10 @@
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">Create Date</div>
 									<div class="hotnews-add-td"></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">Publish Date</div>
+									<div class="hotnews-add-td"><input type="text" class="datepicker" name="publish_time"/></div>
 								</div>
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">Page View</div>
@@ -347,6 +355,11 @@ $(document).ready(function(){
 	});
 });
 */
+
+$(document).ready(function(){
+	$('.datepicker').datepicker();
+});
+
 function submit(){
 	//Blacky
 	//alert(CKEDITOR.instances.editor.getData());

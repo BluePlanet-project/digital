@@ -181,19 +181,50 @@ public class RelatedWebDAO {
 		
 		return list;
 	}
+	
+	public int getGalleryDataCount(int lang_id) throws Exception{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		
+		try{
+			String sql = "select count(*) from digital_relatedweb where lang_id = ? and enabled = 1 and top <> 1 and isDelete <> 1 order by displayOrder,id ";
+			
+			conn = DriverManager.getConnection("proxool.digital");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, lang_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				result = rs.getInt("count");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}
+		
+		return result;
+	}
 
-	public ArrayList<CommonDataBean> getGalleryData(int lang_id) throws Exception{
+	public ArrayList<CommonDataBean> getGalleryData(int lang_id, int page, int page_size) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<CommonDataBean> list = new ArrayList<CommonDataBean>();
 		
 		try{
-			String sql = "select * from digital_relatedweb where lang_id = ? and enabled = 1 and isDelete <> 1 order by displayOrder,id ";
+			String sql = "select * from digital_relatedweb where lang_id = ? and enabled = 1 and isDelete <> 1 order by displayOrder,id limit ?,? ";
 			
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, lang_id);
+			pstmt.setInt(2, (page - 1) * page_size);
+			pstmt.setInt(3, page_size);
 			
 			rs = pstmt.executeQuery();
 			

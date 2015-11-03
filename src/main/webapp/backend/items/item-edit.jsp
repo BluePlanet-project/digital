@@ -152,8 +152,13 @@
 												</c:if>
 											</div>
 										</div>
-										<!-- <div class="hotnews-add-tr">
-											<div class="hotnews-add-td">圖片二</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">
+												圖片二<br />
+												<c:if test="${item.imageBpath != ''}">
+													<input type="checkbox" id="del_img_2_cht" name="del_img_2_cht"/>刪除圖片
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="image_2_cht" name="image_2_cht" /><br />
 												<c:if test="${item.imageBpath != ''}">
 													<img src="<%=contextName%>${item.imageBpath}" height="200px"/>
@@ -161,14 +166,19 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">圖片三</div>
+											<div class="hotnews-add-td">
+												圖片三<br />
+												<c:if test="${item.imageCpath != ''}">
+													<input type="checkbox" id="del_img_3_cht" name="del_img_3_cht"/>刪除圖片
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="image_3_cht" name="image_3_cht" /><br />
 												<c:if test="${item.imageCpath != ''}">
 													<img src="<%=contextName%>${item.imageCpath}" height="200px"/>
 												</c:if>
 											</div>
 										</div>
-										<div class="hotnews-add-tr">
+										<!-- <div class="hotnews-add-tr">
 											<div class="hotnews-add-td">分類標籤</div>
 											<div class="hotnews-add-td">
 												<select id="breadcrumb_1" name="breadcrumb_1_cht">
@@ -236,6 +246,10 @@
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">新增日期</div>
 											<div class="hotnews-add-td">${item.createDate}</div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">發布日期</div>
+											<div class="hotnews-add-td"><input type="text" class="datepicker" formcheck="1" errMsg="請輸入發布時間" id="publish_time_cht" name="publish_time_cht" value="${item.publishTime}"/></div>
 										</div>
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">瀏覽次數</div>
@@ -345,8 +359,13 @@
 												</c:if>
 											</div>
 										</div>
-										<!-- <div class="hotnews-add-tr">
-											<div class="hotnews-add-td">ImageB</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">
+												ImageB<br />
+												<c:if test="${item.imageBpath != ''}">
+													<input type="checkbox" id="del_img_2_enu" name="del_img_2_enu"/>Delete image
+												</c:if>	
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="image_2_enu" name="image_2_enu" /><br />
 												<c:if test="${item.imageBpath != ''}">
 													<img src="<%=contextName%>${item.imageBpath}" height="200px"/>
@@ -354,14 +373,19 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
-											<div class="hotnews-add-td">ImageC</div>
+											<div class="hotnews-add-td">
+												ImageC<br />
+												<c:if test="${item.imageCpath != ''}">
+													<input type="checkbox" id="del_img_3_enu" name="del_img_3_enu"/>Delete image
+												</c:if>
+											</div>
 											<div class="hotnews-add-td"><input type="file" id="image_3_enu" name="image_3_enu" /><br />
 												<c:if test="${item.imageCpath != ''}">
 													<img src="<%=contextName%>${item.imageCpath}" height="200px"/>
 												</c:if>
 											</div>
 										</div>
-										<div class="hotnews-add-tr">
+										<!-- <div class="hotnews-add-tr">
 											<div class="hotnews-add-td">Breadcrumb</div>
 											<div class="hotnews-add-td">
 												<select id="breadcrumb_1" name="breadcrumb_1_enu">
@@ -431,6 +455,10 @@
 											<div class="hotnews-add-td">${item.createDate}</div>
 										</div>
 										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">Publish Date</div>
+											<div class="hotnews-add-td"><input type="text" class="datepicker" id="publish_time" name="publish_time" value="${item.publishTime}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">Page View</div>
 											<div class="hotnews-add-td">${item.pageviews}</div>
 										</div>
@@ -493,6 +521,10 @@ $(document).ready(function(){
 });
 */
 
+
+$(document).ready(function(){
+	$('.datepicker').datepicker();
+});
 
 function submit(){
 	//Blacky

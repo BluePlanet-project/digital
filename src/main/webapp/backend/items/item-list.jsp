@@ -36,6 +36,7 @@
 					<div class="hotnews-list-td"><span>標題</span></div>
 					<div class="hotnews-list-td"><span>作者</span></div>
 					<div class="hotnews-list-td"><span>新增時間</span></div>
+					<div class="hotnews-list-td"><span>發布時間</span></div>
 					<div class="hotnews-list-td"><span>功能</span></div>
 				</div>
 				<c:forEach items="${requestScope.itemList}" var="item" varStatus="number">
@@ -49,6 +50,7 @@
 					<div class="hotnews-list-td">${item.title}</div>
 					<div class="hotnews-list-td">${item.author}</div>
 					<div class="hotnews-list-td">${item.createDate}</div>
+					<div class="hotnews-list-td">${item.publishTime}</div>
 					<div class="hotnews-list-td">
 						<section>
 							<div id="container_buttons">

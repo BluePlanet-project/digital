@@ -72,8 +72,8 @@ public class InterPerspectiveDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_interperspective (serialno, id, lang_id, title, subtitle, description, author, linkA, ")
 				.append(" linkB, linkC, imgPathA, imgPathB, imgPathC, breadcrumbA, breadcrumbB, breadcrumbC, ")
-				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, content_short, content_long ) ")
-				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?) ");
+				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, content_short, content_long, publish_time ) ")
+				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
 			pstmt= conn.prepareStatement(sql.toString());
@@ -102,6 +102,7 @@ public class InterPerspectiveDAO {
 			pstmt.setBoolean(22, false);
 			pstmt.setString(23, bean.getContent_short());
 			pstmt.setString(24, bean.getContent_long());
+			pstmt.setString(25, bean.getPublishTime());
 			pstmt.execute();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -121,7 +122,8 @@ public class InterPerspectiveDAO {
 			sql.append("update digital_interperspective set title = ?, subtitle = ?, description = ?, ")
 				.append("                                           author = ?, linkA = ?, linkB = ?, linkC = ?,  ")
 				.append("                                           breadcrumbA = ?, breadcrumbB = ?, breadcrumbC = ?,")
-				.append("                                           top = ?, enabled = ?, content_short = ?, content_long = ? ");
+				.append("                                           top = ?, enabled = ?, content_short = ?, content_long = ?, ")
+				.append("											   publish_time = ? ");
 			
 			if(!"".equals(bean.getImageApath())){
 				sql.append(",imgPathA = '" + bean.getImageApath() + "'");	
@@ -160,6 +162,7 @@ public class InterPerspectiveDAO {
 			pstmt.setBoolean(12, bean.getEnabled() == 1 ? true : false);
 			pstmt.setString(13, bean.getContent_short());
 			pstmt.setString(14, bean.getContent_long());
+			pstmt.setString(15, bean.getPublishTime());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -266,6 +269,7 @@ public class InterPerspectiveDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -342,12 +346,19 @@ public class InterPerspectiveDAO {
 		}
 	}
 	
-	public void deleteImageA(int id, int langId) throws Exception{
+	public void deleteImage(int id, int langId, int imageNo) throws Exception{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
+		String sql = "";
 		try{
-			String sql = "update digital_interperspective set imgPathA = '' where id = ? and lang_id = ? ";
+			if(imageNo == 1){				
+				sql = "update digital_interperspective set imgPathA = '' where id = ? and lang_id = ? ";
+			}else if(imageNo == 2){
+				sql = "update digital_interperspective set imgPathB = '' where id = ? and lang_id = ? ";
+			}else{
+				sql = "update digital_interperspective set imgPathC = '' where id = ? and lang_id = ? ";
+			}
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
