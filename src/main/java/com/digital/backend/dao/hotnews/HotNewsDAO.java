@@ -72,7 +72,8 @@ public class HotNewsDAO {
 			sql.append("insert into digital_hotnews (id, hotnews_id, hotnews_lang_id, hotnews_title, hotnews_subtitle, hotnews_description, hotnews_author, hotnews_linkA, ")
 				.append(" hotnews_linkB, hotnews_linkC, hotnews_imgPathA, hotnews_imgPathB, hotnews_imgPathC, hotnews_breadcrumbA, hotnews_breadcrumbB, hotnews_breadcrumbC, ")
 				.append(" hotnews_filePathA, hotnews_filePathB, hotnews_filePathC, hotnews_createDate, hotnews_top, hotnews_enabled, hotnews_delete, displayOrder, hotnews_content_short, hotnews_content_long, publish_time ) ")
-				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,?) ");
+				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3 ")
+				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,? ,?,?,?,?,?,?,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
 			pstmt= conn.prepareStatement(sql.toString());
@@ -102,6 +103,13 @@ public class HotNewsDAO {
 			pstmt.setString(23, bean.getContent_short());
 			pstmt.setString(24, bean.getContent_long());
 			pstmt.setString(25, bean.getPublishTime());
+			pstmt.setString(26, bean.getPlainText());
+			pstmt.setString(27, bean.getFileTitle1());
+			pstmt.setString(28, bean.getFileTitle2());
+			pstmt.setString(29, bean.getFileTitle3());
+			pstmt.setString(30, bean.getFileDesc1());
+			pstmt.setString(31, bean.getFileDesc2());
+			pstmt.setString(32, bean.getFileDesc3());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -215,6 +223,8 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
+				
 				list.add(bean);
 			}
 		}catch(Exception e){

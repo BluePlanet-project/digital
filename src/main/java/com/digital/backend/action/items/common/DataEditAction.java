@@ -93,6 +93,15 @@ public class DataEditAction extends HttpServlet{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		publish_time = sdf.format(date);
 		
+		//
+		String plainText = parameters.get("plainText") == null ? "" : parameters.get("plainText").toString();
+		String fileTitle1 = parameters.get("fileTitle1") == null ? "" : parameters.get("fileTitle1").toString();
+		String fileDesc1 = parameters.get("fileDesc1") == null ? "" : parameters.get("fileDesc1").toString();
+		String fileTitle2 = parameters.get("fileTitle2") == null ? "" : parameters.get("fileTitle2").toString();
+		String fileDesc2 = parameters.get("fileDesc2") == null ? "" : parameters.get("fileDesc2").toString();
+		String fileTitle3 = parameters.get("fileTitle3") == null ? "" : parameters.get("fileTitle3").toString();
+		String fileDesc3 = parameters.get("fileDesc3") == null ? "" : parameters.get("fileDesc3").toString();
+		
 		//del image
 		int del_img_1_cht = Integer.parseInt(parameters.get("del_img_1_cht") == null ? "0" : "1");
 		int del_img_2_cht = Integer.parseInt(parameters.get("del_img_2_cht") == null ? "0" : "1");

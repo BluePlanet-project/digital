@@ -71,7 +71,8 @@ public class DataAddonDAO {
 			sql.append("insert into digital_dataaddon (serialno, id, lang_id, title, subtitle, description, author, linkA, ")
 				.append(" linkB, linkC, imgPathA, imgPathB, imgPathC, breadcrumbA, breadcrumbB, breadcrumbC, ")
 				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete,displayOrder, content_short, content_long, publish_time ) ")
-				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,?) ");
+				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3 ")
+				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,? ,?,?,?,?,?,?,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
 			pstmt= conn.prepareStatement(sql.toString());
@@ -101,6 +102,13 @@ public class DataAddonDAO {
 			pstmt.setString(23, bean.getContent_short());
 			pstmt.setString(24, bean.getContent_long());
 			pstmt.setString(25, bean.getPublishTime());
+			pstmt.setString(26, bean.getPlainText());
+			pstmt.setString(27, bean.getFileTitle1());
+			pstmt.setString(28, bean.getFileTitle2());
+			pstmt.setString(29, bean.getFileTitle3());
+			pstmt.setString(30, bean.getFileDesc1());
+			pstmt.setString(31, bean.getFileDesc2());
+			pstmt.setString(32, bean.getFileDesc3());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -214,6 +222,7 @@ public class DataAddonDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){

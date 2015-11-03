@@ -91,6 +91,14 @@ public class DataAddAction extends HttpServlet{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		publish_time = sdf.format(date);
 		
+		String plainText = parameters.get("plainText") == null ? "" : parameters.get("plainText").toString();
+		String fileTitle1 = parameters.get("fileTitle1") == null ? "" : parameters.get("fileTitle1").toString();
+		String fileDesc1 = parameters.get("fileDesc1") == null ? "" : parameters.get("fileDesc1").toString();
+		String fileTitle2 = parameters.get("fileTitle2") == null ? "" : parameters.get("fileTitle2").toString();
+		String fileDesc2 = parameters.get("fileDesc2") == null ? "" : parameters.get("fileDesc2").toString();
+		String fileTitle3 = parameters.get("fileTitle3") == null ? "" : parameters.get("fileTitle3").toString();
+		String fileDesc3 = parameters.get("fileDesc3") == null ? "" : parameters.get("fileDesc3").toString();
+		
 		//ENU
 		String title_enu = parameters.get("title_enu") == null ? "" : parameters.get("title_enu").toString();
 		String author_enu = parameters.get("author_enu") == null ? "" : parameters.get("author_enu").toString();
@@ -184,6 +192,13 @@ public class DataAddAction extends HttpServlet{
 		bean.setContent_short(content_short_cht);
 		bean.setContent_long(content_long_cht);
 		bean.setPublishTime(publish_time);
+		bean.setPlainText(plainText);
+		bean.setFileTitle1(fileTitle1);
+		bean.setFileTitle2(fileTitle2);
+		bean.setFileTitle3(fileTitle3);
+		bean.setFileDesc1(fileDesc1);
+		bean.setFileDesc2(fileDesc2);
+		bean.setFileDesc3(fileDesc3);
 
 		switch(itemAction){
 			case hotnews:
