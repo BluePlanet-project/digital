@@ -3,7 +3,9 @@ package com.digital.backend.action.items.common;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Hashtable;
 
 import javax.servlet.ServletException;
@@ -84,6 +86,10 @@ public class DataAddAction extends HttpServlet{
 		String content_long_cht = parameters.get("content_long_cht") == null ? "" : parameters.get("content_long_cht").toString();
 		int top_cht = Integer.parseInt(parameters.get("top_cht") == null ? "0" : parameters.get("top_cht").toString());
 		int enabled_cht = Integer.parseInt(parameters.get("enabled_cht") == null ? "" : parameters.get("enabled_cht").toString());
+		String publish_time = parameters.get("publish_time_cht") == null ? "0" : parameters.get("publish_time_cht").toString();
+		Date date = new Date(publish_time);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		publish_time = sdf.format(date);
 		
 		//ENU
 		String title_enu = parameters.get("title_enu") == null ? "" : parameters.get("title_enu").toString();
@@ -177,6 +183,7 @@ public class DataAddAction extends HttpServlet{
 		bean.setEnabled(enabled_cht);
 		bean.setContent_short(content_short_cht);
 		bean.setContent_long(content_long_cht);
+		bean.setPublishTime(publish_time);
 
 		switch(itemAction){
 			case hotnews:
