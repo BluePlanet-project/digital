@@ -114,6 +114,13 @@ public class RelatedWebDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -169,6 +176,13 @@ public class RelatedWebDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 				list.add(bean);
 			}
 		}catch(Exception e){

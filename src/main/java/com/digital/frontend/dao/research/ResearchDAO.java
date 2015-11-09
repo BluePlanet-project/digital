@@ -80,7 +80,7 @@ public class ResearchDAO {
 		int result = 0;
 		
 		try{
-			String sql = "select * from digital_research where lang_id = ? and enabled = 1 and top <> 1 and isDelete <> 1 order by displayOrder,id ";
+			String sql = "select count(*) as count from digital_research where lang_id = ? and enabled = 1 and top <> 1 and isDelete <> 1 order by displayOrder,id ";
 			
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
@@ -254,6 +254,13 @@ public class ResearchDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -309,6 +316,13 @@ public class ResearchDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 				list.add(bean);
 			}
 		}catch(Exception e){

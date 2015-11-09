@@ -70,9 +70,8 @@ public class HomeBannerDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_homebanner (serialno, id, lang_id, title, subtitle, description, author, linkA, ")
 				.append(" linkB, linkC, imgPathA, imgPathB, imgPathC, breadcrumbA, breadcrumbB, breadcrumbC, ")
-				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, publish_time ) ")
-				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3 ")
-				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,? ,?,?,?,?,?,?,?) ");
+				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, publish_time) ")
+				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
 			pstmt= conn.prepareStatement(sql.toString());
@@ -100,13 +99,6 @@ public class HomeBannerDAO {
 			pstmt.setBoolean(21, bean.getEnabled() == 1 ? true : false);
 			pstmt.setBoolean(22, false);
 			pstmt.setString(23, bean.getPublishTime());
-			pstmt.setString(24, bean.getPlainText());
-			pstmt.setString(25, bean.getFileTitle1());
-			pstmt.setString(26, bean.getFileTitle2());
-			pstmt.setString(27, bean.getFileTitle3());
-			pstmt.setString(28, bean.getFileDesc1());
-			pstmt.setString(29, bean.getFileDesc2());
-			pstmt.setString(30, bean.getFileDesc3());
 			
 			pstmt.execute();
 		}catch(Exception e){

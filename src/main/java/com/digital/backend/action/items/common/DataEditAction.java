@@ -88,8 +88,9 @@ public class DataEditAction extends HttpServlet{
 		String content_long_cht = parameters.get("content_long_cht") == null ? "" : parameters.get("content_long_cht").toString();
 		int top_cht = Integer.parseInt(parameters.get("top_cht") == null ? "0" : parameters.get("top_cht").toString());
 		int enabled_cht = Integer.parseInt(parameters.get("enabled_cht") == null ? "0" : parameters.get("enabled_cht").toString());
-		String publish_time = parameters.get("publish_time_cht") == null ? "0" : parameters.get("publish_time_cht").toString();
+		String publish_time = parameters.get("publish_time_cht") == null ? "0" : parameters.get("publish_time_cht").toString().split(" ")[0];
 		Date date = new Date(publish_time);
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		publish_time = sdf.format(date);
 		
@@ -171,6 +172,12 @@ public class DataEditAction extends HttpServlet{
 		bean.setContent_short(content_short_cht);
 		bean.setContent_long(content_long_cht);
 		bean.setPublishTime(publish_time);
+		bean.setFileTitle1(fileTitle1);
+		bean.setFileTitle2(fileTitle2);
+		bean.setFileTitle3(fileTitle3);
+		bean.setFileDesc1(fileDesc1);
+		bean.setFileDesc2(fileDesc2);
+		bean.setFileDesc3(fileDesc3);
 
 		String action = parameters.get("action") == null ? "" : parameters.get("action").toString();
 		ItemAction itemAction = ItemAction.getAction(action);

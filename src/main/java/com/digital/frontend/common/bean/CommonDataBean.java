@@ -26,6 +26,14 @@ public class CommonDataBean {
 	int displayOrder;
 	String content_short;
 	String content_long;
+	String publishTime;
+	String plainText;
+	String fileTitle1;
+	String fileTitle2;
+	String fileTitle3;
+	String fileDesc1;
+	String fileDesc2;
+	String fileDesc3;
 	public int getId() {
 		return id;
 	}
@@ -175,5 +183,53 @@ public class CommonDataBean {
 	}
 	public void setContent_long(String content_long) {
 		this.content_long = content_long;
+	}
+	public String getPublishTime() {
+		return publishTime;
+	}
+	public void setPublishTime(String publishTime) {
+		this.publishTime = publishTime;
+	}
+	public String getPlainText() {
+		return plainText;
+	}
+	public void setPlainText(String plainText) {
+		this.plainText = plainText;
+	}
+	public String getFileTitle1() {
+		return fileTitle1;
+	}
+	public void setFileTitle1(String fileTitle1) {
+		this.fileTitle1 = fileTitle1;
+	}
+	public String getFileTitle2() {
+		return fileTitle2;
+	}
+	public void setFileTitle2(String fileTitle2) {
+		this.fileTitle2 = fileTitle2;
+	}
+	public String getFileTitle3() {
+		return fileTitle3;
+	}
+	public void setFileTitle3(String fileTitle3) {
+		this.fileTitle3 = fileTitle3;
+	}
+	public String getFileDesc1() {
+		return fileDesc1;
+	}
+	public void setFileDesc1(String fileDesc1) {
+		this.fileDesc1 = fileDesc1;
+	}
+	public String getFileDesc2() {
+		return fileDesc2;
+	}
+	public void setFileDesc2(String fileDesc2) {
+		this.fileDesc2 = fileDesc2;
+	}
+	public String getFileDesc3() {
+		return fileDesc3;
+	}
+	public void setFileDesc3(String fileDesc3) {
+		this.fileDesc3 = fileDesc3;
 	}
 }

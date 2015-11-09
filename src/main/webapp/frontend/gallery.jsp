@@ -15,9 +15,9 @@
 	<link rel="stylesheet" href="/frontend/stylesheets/modify.css">
 	<link rel="stylesheet" href="/frontend/stylesheets/flexslider.css">
 	<link rel="stylesheet" href="/frontend/css/font-awesome.min.css">
-	<link type="text/css" rel="stylesheet" href="/backend/css/pagination/simplePagination.css"/>
+	<link type="text/css" rel="stylesheet" href="/frontend/css/pagination/simplePagination.css"/>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  	<script type="text/javascript" src="/backend/js/pagination/jquery.simplePagination.js"></script>
+  	<script type="text/javascript" src="/frontend/js/pagination/jquery.simplePagination.js"></script>
   	<script src="/frontend/js/jquery.flexslider.js"></script>
     <script src="/frontend/js/js.js"></script>
     <style type="text/css">

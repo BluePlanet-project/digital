@@ -86,6 +86,13 @@
 										</div>
 										-->
 								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">純文字標籤說明</div>
+									<div class="hotnews-add-td">
+										<textarea id="plainText_cht" name="plainText_cht" /></textarea>
+										<div id="plainText_msg"></div>	
+									</div>
+								</div>
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">作者</div>
 									<div class="hotnews-add-td">
 										<input type="text" id="author_cht" name="author_cht" formcheck="1" errMsg="請輸入作者"/>
@@ -150,12 +157,36 @@
 									<div class="hotnews-add-td"><input type="file" id="file_1_cht" name="file_1_cht" /></div>
 								</div>
 								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">檔案下載一標題</div>
+									<div class="hotnews-add-td"><input type="text" id="fileTitle1" name="fileTitle1" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">檔案下載一描述</div>
+									<div class="hotnews-add-td"><input type="text" id="fileDesc1" name="fileDesc1" /></div>
+								</div>
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">檔案下載二</div>
 									<div class="hotnews-add-td"><input type="file" id="file_2_cht" name="file_2_cht" /></div>
 								</div>
 								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">檔案下載二標題</div>
+									<div class="hotnews-add-td"><input type="text" id="fileTitle2" name="fileTitle2" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">檔案下載二描述</div>
+									<div class="hotnews-add-td"><input type="text" id="fileDesc2" name="fileDesc2" /></div>
+								</div>
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">檔案下載三</div>
 									<div class="hotnews-add-td"><input type="file" id="file_3_cht" name="file_3_cht" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">檔案下載三標題</div>
+									<div class="hotnews-add-td"><input type="text" id="fileTitle3" name="fileTitle3" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">檔案下載三描述</div>
+									<div class="hotnews-add-td"><input type="text" id="fileDesc3" name="fileDesc3" /></div>
 								</div>
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">新增日期</div>
@@ -227,6 +258,12 @@
 									<div class="hotnews-add-td"><textarea id="content_long_enu" name="content_long_enu"/></textarea></div>
 								</div>
 								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">Plain Text</div>
+									<div class="hotnews-add-td">
+										<textarea id="plainText_enu" name="plainText_enu"/></textarea>
+									</div>
+								</div>
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">Author</div>
 									<div class="hotnews-add-td"><input type="text" id="author_enu" name="author_enu"/></div>
 								</div>
@@ -285,12 +322,36 @@
 									<div class="hotnews-add-td"><input type="file" id="file_1_enu" name="file_1_enu" /></div>
 								</div>
 								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">FileA Title</div>
+									<div class="hotnews-add-td"><input type="text" id="fileTitle1_enu" name="fileTitle1_enu" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">FileA Description</div>
+									<div class="hotnews-add-td"><input type="text" id="fileDesc1_enu" name="fileDesc1_enu" /></div>
+								</div>
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">FileB</div>
 									<div class="hotnews-add-td"><input type="file" id="file_2_enu" name="file_2_enu" /></div>
 								</div>
 								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">FileB Title</div>
+									<div class="hotnews-add-td"><input type="text" id="fileTitle2_enu" name="fileTitle2_enu" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">FileB Description</div>
+									<div class="hotnews-add-td"><input type="text" id="fileDesc2_enu" name="fileDesc2_enu" /></div>
+								</div>
+								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">FileC</div>
 									<div class="hotnews-add-td"><input type="file" id="file_3_enu" name="file_3_enu" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">FileC Title</div>
+									<div class="hotnews-add-td"><input type="text" id="fileTitle3_enu" name="fileTitle3_enu" /></div>
+								</div>
+								<div class="hotnews-add-tr">
+									<div class="hotnews-add-td">FileC Description</div>
+									<div class="hotnews-add-td"><input type="text" id="fileDesc3_enu" name="fileDesc3_enu" /></div>
 								</div>
 								<div class="hotnews-add-tr">
 									<div class="hotnews-add-td">Create Date</div>

@@ -72,8 +72,8 @@ public class InterPerspectiveDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_interperspective (serialno, id, lang_id, title, subtitle, description, author, linkA, ")
 				.append(" linkB, linkC, imgPathA, imgPathB, imgPathC, breadcrumbA, breadcrumbB, breadcrumbC, ")
-				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, content_short, content_long, publish_time ) ")
-				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3 ")
+				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete, displayOrder, content_short, content_long, publish_time ")
+				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3) ")
 				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,? ,?,?,?,?,?,?,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
@@ -132,7 +132,7 @@ public class InterPerspectiveDAO {
 				.append("                                           author = ?, linkA = ?, linkB = ?, linkC = ?,  ")
 				.append("                                           breadcrumbA = ?, breadcrumbB = ?, breadcrumbC = ?,")
 				.append("                                           top = ?, enabled = ?, content_short = ?, content_long = ?, ")
-				.append("											   publish_time = ? ");
+				.append("											   publish_time = ?, plain_text = ?, file_title_1 = ?, file_title_2 = ?, file_title_3 = ?, file_desc_1 = ?, file_desc_2 = ?, file_desc_3 = ? ");
 			
 			if(!"".equals(bean.getImageApath())){
 				sql.append(",imgPathA = '" + bean.getImageApath() + "'");	
@@ -172,6 +172,13 @@ public class InterPerspectiveDAO {
 			pstmt.setString(13, bean.getContent_short());
 			pstmt.setString(14, bean.getContent_long());
 			pstmt.setString(15, bean.getPublishTime());
+			pstmt.setString(16, bean.getPlainText());
+			pstmt.setString(17, bean.getFileTitle1());
+			pstmt.setString(18, bean.getFileTitle2());
+			pstmt.setString(19, bean.getFileTitle3());
+			pstmt.setString(20, bean.getFileDesc1());
+			pstmt.setString(21, bean.getFileDesc2());
+			pstmt.setString(22, bean.getFileDesc3());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -225,6 +232,13 @@ public class InterPerspectiveDAO {
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
 				bean.setPublishTime(rs.getString("publish_time"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 				list.add(bean);
 			}
 		}catch(Exception e){

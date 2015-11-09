@@ -163,7 +163,7 @@ public class HotNewsDAO {
 		ArrayList<CommonDataBean> list = new ArrayList<CommonDataBean>();
 		
 		try{
-			String sql = "select * from digital_hotnews where hotnews_lang_id = ? and hotnews_enabled = 1 and hotnews_top <> 1 and hotnews_delete <> 1  order by displayOrder,id limit ?, ? ";
+			String sql = "select * from digital_hotnews where hotnews_lang_id = ? and hotnews_enabled = 1 and hotnews_top <> 1 and hotnews_delete <> 1  order by publish_time desc limit ?, ? ";
 			
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);
@@ -308,6 +308,13 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -363,6 +370,13 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 				list.add(bean);
 			}
 		}catch(Exception e){

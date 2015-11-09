@@ -82,7 +82,7 @@ public class FrontGalleryAction extends HttpServlet{
 				list = ResearchDAO.getInstance().getGalleryData(1, page, page_size);
 				total_count = ResearchDAO.getInstance().getGalleryDataCount(1);
 				topBean = ResearchDAO.getInstance().getTopGalleryData(1);
-				gallery_title_cht = "研究計畫";
+				gallery_title_cht = "數位人文計畫介紹";
 				break;
 			case knowTaiwan:
 				list = KnowTaiwanDAO.getInstance().getGalleryData(1, page, page_size);

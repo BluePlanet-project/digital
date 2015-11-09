@@ -103,6 +103,13 @@
 										</div>
 										-->
 										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">純文字標籤說明</div>
+											<div class="hotnews-add-td">
+												<textarea id="plainText_cht" name="plainText_cht" />${item.plainText}</textarea>
+												<div id="plainText_msg"></div>	
+											</div>
+										</div>
+										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">作者</div>
 											<div class="hotnews-add-td">
 												<input type="text" id="author_cht" name="author_cht" value="${item.author}" formcheck="1" errMsg="請輸入作者"/>
@@ -218,6 +225,14 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">檔案下載一標題</div>
+											<div class="hotnews-add-td"><input type="text" id="fileTitle1" name="fileTitle1" value="${item.fileTitle1}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">檔案下載一描述</div>
+											<div class="hotnews-add-td"><input type="text" id="fileDesc1" name="fileDesc1" value="${item.fileDesc1}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">
 												檔案下載二<br />
 												<c:if test="${item.fileBpath != ''}">
@@ -231,6 +246,14 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">檔案下載二標題</div>
+											<div class="hotnews-add-td"><input type="text" id="fileTitle2" name="fileTitle2" value="${item.fileTitle2}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">檔案下載二描述</div>
+											<div class="hotnews-add-td"><input type="text" id="fileDesc2" name="fileDesc2" value="${item.fileDesc2}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">
 												檔案下載三<br />
 												<c:if test="${item.fileCpath != ''}">
@@ -242,6 +265,14 @@
 													<a href="${item.fileCpath}" target="_blank">下載</a>
 												</c:if>
 											</div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">檔案下載三標題</div>
+											<div class="hotnews-add-td"><input type="text" id="fileTitle3" name="fileTitle3" value="${item.fileTitle3}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">檔案下載三描述</div>
+											<div class="hotnews-add-td"><input type="text" id="fileDesc3" name="fileDesc3" value="${item.fileDesc3}"/></div>
 										</div>
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">新增日期</div>
@@ -317,6 +348,12 @@
 										<div class="hotnews-add-tr" <c:if test="${action == 'homebanner'}">style="display:none;"</c:if>>
 											<div class="hotnews-add-td">Content(long)</div>
 											<div class="hotnews-add-td"><textarea id="content_long_enu" name="content_long_enu"/>${item.content_long}</textarea></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">Plain Text</div>
+											<div class="hotnews-add-td">
+												<textarea id="plainText_enu" name="plainText_enu" />${item.plainText}</textarea>
+											</div>
 										</div>
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">Author</div>
@@ -425,6 +462,14 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">FileA Title</div>
+											<div class="hotnews-add-td"><input type="text" id="fileTitle1_enu" name="fileTitle1_enu" value="${item.fileTitle1}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">FileA Description</div>
+											<div class="hotnews-add-td"><input type="text" id="fileDesc1_enu" name="fileDesc1_enu" value="${item.fileDesc1}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">
 												FileB<br />
 												<c:if test="${item.fileBpath != ''}">
@@ -438,6 +483,14 @@
 											</div>
 										</div>
 										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">FileB Title</div>
+											<div class="hotnews-add-td"><input type="text" id="fileTitle2_enu" name="fileTitle2_enu" value="${item.fileTitle2}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">FileB Description</div>
+											<div class="hotnews-add-td"><input type="text" id="fileDesc2_enu" name="fileDesc2_enu" value="${item.fileDesc2}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">
 												FileC<br />
 												<c:if test="${item.fileCpath != ''}">
@@ -449,6 +502,14 @@
 													<a href="${item.fileCpath}" target="_blank">Download</a>
 												</c:if>
 											</div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">FileC Title</div>
+											<div class="hotnews-add-td"><input type="text" id="fileTitle3_enu" name="fileTitle3_enu" value="${item.fileTitle3}"/></div>
+										</div>
+										<div class="hotnews-add-tr">
+											<div class="hotnews-add-td">FileC Description</div>
+											<div class="hotnews-add-td"><input type="text" id="fileDesc3_enu" name="fileDesc3_enu" value="${item.fileDesc3}"/></div>
 										</div>
 										<div class="hotnews-add-tr">
 											<div class="hotnews-add-td">Create Date</div>
@@ -524,6 +585,9 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	$('.datepicker').datepicker();
+	var date = $('.datepicker').val().split(" ")[0];
+	var time = date.split("-");
+	$(".datepicker").datepicker('setDate', time[2] + '/' + time[1] + '/' + time[0]);
 });
 
 function submit(){

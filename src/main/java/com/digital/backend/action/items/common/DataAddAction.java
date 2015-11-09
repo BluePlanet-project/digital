@@ -91,7 +91,7 @@ public class DataAddAction extends HttpServlet{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		publish_time = sdf.format(date);
 		
-		String plainText = parameters.get("plainText") == null ? "" : parameters.get("plainText").toString();
+		String plainText = parameters.get("plainText_cht") == null ? "" : parameters.get("plainText_cht").toString();
 		String fileTitle1 = parameters.get("fileTitle1") == null ? "" : parameters.get("fileTitle1").toString();
 		String fileDesc1 = parameters.get("fileDesc1") == null ? "" : parameters.get("fileDesc1").toString();
 		String fileTitle2 = parameters.get("fileTitle2") == null ? "" : parameters.get("fileTitle2").toString();

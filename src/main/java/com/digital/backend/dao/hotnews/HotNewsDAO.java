@@ -71,8 +71,8 @@ public class HotNewsDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_hotnews (id, hotnews_id, hotnews_lang_id, hotnews_title, hotnews_subtitle, hotnews_description, hotnews_author, hotnews_linkA, ")
 				.append(" hotnews_linkB, hotnews_linkC, hotnews_imgPathA, hotnews_imgPathB, hotnews_imgPathC, hotnews_breadcrumbA, hotnews_breadcrumbB, hotnews_breadcrumbC, ")
-				.append(" hotnews_filePathA, hotnews_filePathB, hotnews_filePathC, hotnews_createDate, hotnews_top, hotnews_enabled, hotnews_delete, displayOrder, hotnews_content_short, hotnews_content_long, publish_time ) ")
-				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3 ")
+				.append(" hotnews_filePathA, hotnews_filePathB, hotnews_filePathC, hotnews_createDate, hotnews_top, hotnews_enabled, hotnews_delete, displayOrder, hotnews_content_short, hotnews_content_long, publish_time, ")
+				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3) ")
 				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,? ,?,?,?,?,?,?,?) ");
 			
 			conn = DriverManager.getConnection("proxool.digital"); 
@@ -131,7 +131,7 @@ public class HotNewsDAO {
 				.append("                                           hotnews_author = ?, hotnews_linkA = ?, hotnews_linkB = ?, hotnews_linkC = ?,  ")
 				.append("                                           hotnews_breadcrumbA = ?, hotnews_breadcrumbB = ?, hotnews_breadcrumbC = ?,")
 				.append("                                           hotnews_top = ?, hotnews_enabled = ?, hotnews_content_short = ?, hotnews_content_long = ?, ")
-				.append("											   publish_time = ? ");
+				.append("											   publish_time = ?, plain_text = ?, file_title_1 = ?, file_title_2 = ?, file_title_3 = ?, file_desc_1 = ?, file_desc_2 = ?, file_desc_3 = ? ");
 			
 			if(!"".equals(bean.getImageApath())){
 				sql.append(",hotnews_imgPathA = '" + bean.getImageApath() + "'");	
@@ -171,6 +171,13 @@ public class HotNewsDAO {
 			pstmt.setString(13, bean.getContent_short());
 			pstmt.setString(14, bean.getContent_long());
 			pstmt.setString(15, bean.getPublishTime());
+			pstmt.setString(16, bean.getPlainText());
+			pstmt.setString(17, bean.getFileTitle1());
+			pstmt.setString(18, bean.getFileTitle2());
+			pstmt.setString(19, bean.getFileTitle3());
+			pstmt.setString(20, bean.getFileDesc1());
+			pstmt.setString(21, bean.getFileDesc2());
+			pstmt.setString(22, bean.getFileDesc3());
 			
 			pstmt.execute();
 		}catch(Exception e){
@@ -224,6 +231,13 @@ public class HotNewsDAO {
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
 				bean.setPublishTime(rs.getString("publish_time"));
+				bean.setPlainText(rs.getString("plain_text"));
+				bean.setFileTitle1(rs.getString("file_title_1"));
+				bean.setFileTitle2(rs.getString("file_title_2"));
+				bean.setFileTitle3(rs.getString("file_title_3"));
+				bean.setFileDesc1(rs.getString("file_desc_1"));
+				bean.setFileDesc2(rs.getString("file_desc_2"));
+				bean.setFileDesc3(rs.getString("file_desc_3"));
 				
 				list.add(bean);
 			}
