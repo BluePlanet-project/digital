@@ -70,7 +70,7 @@ public class DataAddonDAO {
 			StringBuffer sql = new StringBuffer();
 			sql.append("insert into digital_dataaddon (serialno, id, lang_id, title, subtitle, description, author, linkA, ")
 				.append(" linkB, linkC, imgPathA, imgPathB, imgPathC, breadcrumbA, breadcrumbB, breadcrumbC, ")
-				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete,displayOrder, content_short, content_long, publish_time ")
+				.append(" filePathA, filePathB, filePathC, createDate, top, enabled, isDelete,displayOrder, content_short, content_long, publish_time, ")
 				.append(" plain_text, file_title_1, file_title_2, file_title_3, file_desc_1, file_desc_2, file_desc_3) ")
 				.append(" values (?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,now(), ?,?,?,1,?,?,? ,?,?,?,?,?,?,?) ");
 			

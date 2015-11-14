@@ -95,7 +95,7 @@ public class DataEditAction extends HttpServlet{
 		publish_time = sdf.format(date);
 		
 		//
-		String plainText = parameters.get("plainText") == null ? "" : parameters.get("plainText").toString();
+		String plainText = parameters.get("plainText_cht") == null ? "" : parameters.get("plainText_cht").toString();
 		String fileTitle1 = parameters.get("fileTitle1") == null ? "" : parameters.get("fileTitle1").toString();
 		String fileDesc1 = parameters.get("fileDesc1") == null ? "" : parameters.get("fileDesc1").toString();
 		String fileTitle2 = parameters.get("fileTitle2") == null ? "" : parameters.get("fileTitle2").toString();
@@ -172,6 +172,7 @@ public class DataEditAction extends HttpServlet{
 		bean.setContent_short(content_short_cht);
 		bean.setContent_long(content_long_cht);
 		bean.setPublishTime(publish_time);
+		bean.setPlainText(plainText);
 		bean.setFileTitle1(fileTitle1);
 		bean.setFileTitle2(fileTitle2);
 		bean.setFileTitle3(fileTitle3);

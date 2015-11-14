@@ -12,6 +12,7 @@ import com.digital.backend.dao.academic.AcademicDAO;
 import com.digital.backend.dao.converage.ConverageDAO;
 import com.digital.backend.dao.dataaddon.DataAddonDAO;
 import com.digital.backend.dao.database.DataBaseDAO;
+import com.digital.backend.dao.homebanner.HomeBannerDAO;
 import com.digital.backend.dao.hotnews.HotNewsDAO;
 import com.digital.backend.dao.interperspective.InterPerspectiveDAO;
 import com.digital.backend.dao.knowtaiwan.KnowTaiwanDAO;
@@ -85,6 +86,8 @@ public class DataDelAction extends HttpServlet{
 					case academic:
 						AcademicDAO.getInstance().delDataById(id);
 						break;
+					case homebanner:
+						HomeBannerDAO.getInstance().delDataById(id);
 					default:
 						break;
 				}
