@@ -163,17 +163,29 @@
 
 
 		<div class="line_a"></div>
-<!--
+
 		<c:if test="${itemBean.fileApath != ''}">
-			<a href="${itemBean.fileApath}" class="download" target="_blank"><img src="/frontend/images/arrow-download-icon.png" alt="">資料下載</a>
+			<a href="${itemBean.fileApath}" class="download" target="_blank">
+				<img src="/frontend/images/arrow-download-icon.png" alt="">資料下載
+				<!-- title & description -->
+				${itemBean.fileTitle1}/${itemBean.fileDesc1}
+			</a>
 		</c:if>
 		<c:if test="${itemBean.fileBpath != ''}">
-			<a href="${itemBean.fileApath}" class="download" target="_blank"><img src="/frontend/images/arrow-download-icon.png" alt="">資料下載</a>
+			<a href="${itemBean.fileApath}" class="download" target="_blank">
+				<img src="/frontend/images/arrow-download-icon.png" alt="">資料下載
+				<!-- title & description -->
+				${itemBean.fileTitle2}/${itemBean.fileDesc2}
+			</a>
 		</c:if>
 		<c:if test="${itemBean.fileCpath != ''}">
-			<a href="${itemBean.fileApath}" class="download" target="_blank"><img src="/frontend/images/arrow-download-icon.png" alt="">資料下載‰</a>
+			<a href="${itemBean.fileApath}" class="download" target="_blank">
+				<img src="/frontend/images/arrow-download-icon.png" alt="">資料下載
+				<!-- title & description -->
+				${itemBean.fileTitle3}/${itemBean.fileDesc3}
+			</a>
 		</c:if>
--->
+
 
 
 <script type='text/javascript' src='//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js' data-shr-siteid='46e002a9a52bc68dbf59ab986236da1c' data-cfasync='false' async='async'></script>

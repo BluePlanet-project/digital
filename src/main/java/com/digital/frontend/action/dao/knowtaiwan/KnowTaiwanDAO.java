@@ -137,7 +137,7 @@ public class KnowTaiwanDAO {
 		int result = 0;
 		
 		try{
-			String sql = "select count(*) from digital_knowtaiwan where lang_id = ? and enabled = 1 and top <> 1 and isDelete <> 1 order by displayOrder,id ";
+			String sql = "select count(*) as count from digital_knowtaiwan where lang_id = ? and enabled = 1 and top <> 1 and isDelete <> 1 order by displayOrder,id ";
 			
 			conn = DriverManager.getConnection("proxool.digital");
 			pstmt = conn.prepareStatement(sql);

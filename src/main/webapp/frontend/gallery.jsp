@@ -57,7 +57,7 @@
 		    $('#pagination').pagination({
 		        items: ${galleryTotal},
 		        currentPage: ${page},
-		        itemsOnPage: 6,
+		        itemsOnPage: 10,
 		        displayedPages: 5,
 		        cssStyle: 'light-theme',
 		        hrefTextPrefix:'?action=${action}&page='
