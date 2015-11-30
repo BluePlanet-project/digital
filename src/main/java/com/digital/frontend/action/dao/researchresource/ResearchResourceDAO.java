@@ -59,6 +59,7 @@ public class ResearchResourceDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -145,6 +146,7 @@ public class ResearchResourceDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -199,6 +201,7 @@ public class ResearchResourceDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -253,6 +256,7 @@ public class ResearchResourceDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				bean.setPlainText(rs.getString("plain_text"));
 				bean.setFileTitle1(rs.getString("file_title_1"));
 				bean.setFileTitle2(rs.getString("file_title_2"));
@@ -315,6 +319,7 @@ public class ResearchResourceDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("content_short"));
 				bean.setContent_long(rs.getString("content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				bean.setPlainText(rs.getString("plain_text"));
 				bean.setFileTitle1(rs.getString("file_title_1"));
 				bean.setFileTitle2(rs.getString("file_title_2"));

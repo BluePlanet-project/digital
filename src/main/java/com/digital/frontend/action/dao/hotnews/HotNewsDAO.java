@@ -60,6 +60,7 @@ public class HotNewsDAO {
 				bean.setCreateDate(rs.getString("hotnews_createDate"));
 				bean.setPageviews(rs.getInt("hotnews_pageViews"));
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -200,6 +201,7 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				list.add(bean);
 			}
 		}catch(Exception e){
@@ -254,6 +256,7 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 			}
 		}catch(Exception e){
 			e.printStackTrace();
@@ -308,6 +311,7 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				bean.setPlainText(rs.getString("plain_text"));
 				bean.setFileTitle1(rs.getString("file_title_1"));
 				bean.setFileTitle2(rs.getString("file_title_2"));
@@ -370,6 +374,7 @@ public class HotNewsDAO {
 				bean.setDisplayOrder(rs.getInt("displayOrder"));
 				bean.setContent_short(rs.getString("hotnews_content_short"));
 				bean.setContent_long(rs.getString("hotnews_content_long"));
+				bean.setPublishTime(rs.getString("publish_time"));
 				bean.setPlainText(rs.getString("plain_text"));
 				bean.setFileTitle1(rs.getString("file_title_1"));
 				bean.setFileTitle2(rs.getString("file_title_2"));
